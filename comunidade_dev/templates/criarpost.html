@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+<main>
+    <section class="flex flex-row  w-full h-screen justify-center items-center">
+        <form style="background-color: #b1adff2d;"  method="POST" action="" class="flex shadow-lg flex-col gap-[50px] p-[4rem] rounded-lg" enctype="multipart/form-data">
+            {{ form.csrf_token }}
+
+            <legend style="font-family: Quicksand; font-weight: 700;" class="text-[40px] text-center">Criar Post</legend>
+
+            <fieldset class="flex flex-col gap-[30px]">
+
+                <div style="font-family: Quicksand; font-weight: 500;" class="flex flex-col gap-[10px]">
+                    {{ form.corpo.label(class='form-control-label') }}
+                    {% if form.corpo.errors %}
+                        {{ form.corpo(class='form-control is-invalid') }}
+
+                        <div class="invalid-feedback">
+                            {% for error in form.corpo.errors %}
+                                {{ error}}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.corpo(class='px-[15px] h-[40px] w-[450px] border-[2px] rounded-lg') }}
+                    {% endif %}
+                </div>
+                
+
+                <div style="font-family: Quicksand; font-weight: 500;" class="flex flex-col gap-[10px]">
+                    {{ form.foto_post.label}}
+                    {{ form.foto_post(class='')}}
+                    {% if form.foto_post.errors %}
+                        {% for error in form.foto_post.errors %}
+                            <pan class="text-danger">{{ error }}</pan>
+                            <br>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                
+            </fieldset>
+            <div class="flex justify-center">
+                {{ form.botaoSubmitCriarPost(class='bg-[#6C63FF] hover:bg-[#4941FF] duration-150 cursor-pointer w-[150px] rounded-lg p-[10px] text-white text-[18px]') }}
+
+            </div>
+        </form>
+        <img width="45%" src="https://cdn.discordapp.com/attachments/965066624556232737/1088908381521203210/undraw_Post_re_mtr4.png" alt="">
+
+    </section>
+</main>
+            
+
+
+{% endblock %}

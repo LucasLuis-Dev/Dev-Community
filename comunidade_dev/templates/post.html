@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+{% if post.fotoPost and comentarios.count() == 0 %}
+    <main class="flex flex-col w-full h-screen justify-center items-center">
+
+{% elif post.fotoPost and comentarios.count() > 0 %}
+    <main class="flex flex-col w-full justify-center items-center">
+
+{% elif not post.fotoPost and comentarios.count() < 3  %}
+    <main class="flex flex-col h-screen w-full justify-center items-center">
+
+{% elif not post.fotoPost and  comentarios.count() >= 3 %}
+    <main class="flex flex-col w-full justify-center items-center mt-[70px]">
+
+{% endif %}
+    <section class="flex flex-col gap-[40px] w-full h-fit justify-center items-center mt-[100px]">
+    
+        <div class="flex flex-col w-[80%]  justify-center items-center mb-[30px]">
+                            
+            <article class="flex flex-col shadow-lg p-[32px] gap-[5px] rounded-lg  w-[70%] bg-[#b1adff2d] ">
+
+                <div class="flex flex-row mb-[15px] gap-[20px] w-[100%] justify-between">
+
+                    <div class="flex flex-row  items-center gap-[20px]"> 
+                        <img class="w-[70px] rounded-full" src="{{ url_for('static', filename='fotos_perfil/{}'.format(post.autor.fotoPerfil)) }}" >
+                    
+                        <div >
+                            
+                            <div class="flex flex-col mt-[20px]">
+                                <div >
+                                    <h4 style="font-family: Quicksand; font-weight: 700;" class="text-[23px] capitalize" >{{ post.autor.username }}</h4>
+                                    <div class="flex flex-row flex-wrap gap-[10px] w-[150%]">
+                                        {% for area in post.autor.areas.split(';') %}
+                                            <h5 style="font-family: Quicksand; font-weight: 500;">{{ area }}</h5>
+                                        {% endfor %}
+    
+                                    </div>
+                                    
+                                </div>
+                                <div >
+                                    
+                                    <div class="flex flex-row flex-wrap gap-[10px] w-[150%]">
+                                        {% for stack in post.autor.stacks.split(';') %}
+                                            <h5 style="font-family: Quicksand; font-weight: 500;">{{ stack }}</h5>
+                                        {% endfor %}
+    
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    
+                    <div class="flex flex-row gap-[15px] justify-center items-center"> 
+                        {% if current_user == post.autor %}
+                            <a href="{{ url_for('editarPost', post_id=post.id) }}">
+                                <img width="30px" class="mt-[10px]" src="https://cdn.discordapp.com/attachments/965066624556232737/1088937873698476042/la_pen1.png" alt="">
+                            </a>
+                        
+                            
+                        {% else %}
+                            <img width="200px" src="https://cdn.discordapp.com/attachments/965066624556232737/1088937491974848584/logo_2_-removebg-preview.png" alt="">
+                        {% endif %}
+                        
+                    </div>
+
+                    
+                </div>
+
+                <div class="flex flex-col w-[100%] justify-start items-start">
+                    <div style="text-decoration: none; font-family: Quicksand; font-weight: 500;" class="text-[#6C63FF] text-left">
+                        {% if post.fotoPost: %}
+                            <img class="w-[100%] text-center mb-[15px]" src="{{ url_for('static', filename='fotos_posts/{}'.format(post.fotoPost)) }}" >
+                        {% endif %}
+                        <p class="w-full mb-[10px]  text-[19px]" >{{ post.corpo }}</p>
+                        <h6 class="w-full mb-[10px] " >{{ post.dataCriacao.strftime('%d/%m/%Y')  }}</h6>
+                    </div>
+                    
+                </div>
+                
+                <a href="{{ url_for('criarComentario', post_id=post.id) }}" class='bg-[#6C63FF] hover:bg-[#4941FF] duration-150 cursor-pointer w-[250px] text-center rounded-lg p-[10px] text-white text-[18px]'>
+                    Criar Comentário
+
+                </a>
+            </article>
+            
+        </div>
+        
+    </section>
+
+    <section class="flex flex-col gap-[40px] w-full justify-start items-center ">
+
+        {% if comentarios %}
+        
+            <div class="flex flex-col w-[80%]  justify-center items-center"></div>
+                {% for comentario in comentarios %}
+                    <div class="flex flex-col shadow-lg gap-[10px] w-[56%] p-[20px] rounded-lg bg-[#b1adff2d] mb-[30px]">
+                        
+                        <div class="flex items-center  justify-between">
+                            <div  class="flex flex-row items-center  gap-[20px]">
+
+                                <img class="w-[60px]" style="border-radius: 50%;" src="{{ url_for('static', filename='fotos_perfil/{}'.format(comentario.autor.fotoPerfil)) }}"  width="90" >
+                                
+                                <div class="flex flex-col">
+                                    <h4 style="font-family: Quicksand; font-weight: 700;" id="nome-coment-autor" >{{ comentario.autor.username }}</h4>
+                                    <h6 style="font-family: Quicksand; font-weight: 500;" id="data-coment" >{{ comentario.dataCriacao.strftime('%d/%m/%Y')  }}</h6>
+                                </div>
+        
+                            </div>
+
+                            {% if current_user == comentario.autor %}
+                            <a href="{{ url_for('editarComentario', comentario_id=comentario.id, post_id=post.id) }}">
+                                <img width="30px" class="mt-[10px]" src="https://cdn.discordapp.com/attachments/965066624556232737/1088937873698476042/la_pen1.png" alt="">
+                            </a>
+                            {% endif %}
+                        </div>
+                        
+                        <div id="coment-coluna2">
+                            <p id="corpo-comentario" >{{ comentario.corpo }}</p>
+                        </div>
+                        
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </section>
+    
+</main>
+    
+        
+
+
+
+            
+            
+                
+    
+
+
+
+    
+
+<!-- Modal -->
+
+
+{% endblock %}

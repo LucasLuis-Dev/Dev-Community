@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+
+<main>
+    <section class="flex flex-row gap-[30px] px-[4rem] w-full  mt-[20px] justify-center items-center">
+        <div>
+            <img src="https://cdn.discordapp.com/attachments/965066624556232737/1088867739269091370/undraw_Programming_re_kg9v.png" alt="">  
+        </div>
+        
+        <form style="background-color: #b1adff2d;" method="POST" action="" class="flex flex-col shadow-lg w-[50%] mt-[100px] gap-[50px] p-[2rem] rounded-lg" enctype="multipart/form-data">
+            {{ form.csrf_token }}
+
+            <legend style="font-family: Quicksand; font-weight: 700;" class="text-[40px] text-center">Editar Perfil</legend>
+
+            <fieldset class="flex flex-col gap-[20px]">
+
+                <div style="font-family: Quicksand; font-weight: 500;" class="flex flex-col gap-[10px]">
+                    {{ form.username.label(class='form-control-label') }}
+                    {% if form.username.errors %}
+                        {{ form.username( class='form-control is-invalid') }}
+
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %}
+                                {{ error}}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.username(class='px-[15px] h-[40px] w-[750px] border-[2px] rounded-lg') }}
+                    {% endif %}
+                </div>
+
+                <div style="font-family: Quicksand; font-weight: 500;" class="flex flex-col gap-[10px]">
+                    {{ form.email.label(class='form-control-label') }}
+
+                    {% if form.email.errors %}
+                        {{ form.email(class='form-control is-invalid') }}
+
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                {{ error}}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class='px-[15px] h-[40px] w-[750px] border-[2px] rounded-lg') }}
+                    {% endif %}
+
+                    
+                </div>
+                
+                <div style="font-family: Quicksand; font-weight: 500;" class="flex flex-col gap-[10px]">
+                    {{ form.foto_perfil.label}}
+                    {{ form.foto_perfil(class='form-control-file')}}
+                    {% if form.foto_perfil.errors %}
+                        {% for error in form.foto_perfil.errors %}
+                            <pan class="text-danger">{{ error }}</pan>
+                            <br>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                
+                <div class="flex flex-row gap-[3rem]">
+                    <div style="font-family: Quicksand; font-weight: 500;" class="flex flex-col gap-[10px]">
+                        <p>Tecnologias</p>
+                        <div class="flex flex-row flex-wrap gap-[30px]">
+                            {% for campo in form %}
+                                {% if 'tech_' in campo.name %}
+                                    <div class="form-group">
+                                        {{ campo(class='rounded-lg') }}
+                                        {{ campo.label }}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+    
+                        </div>
+                        
+                    </div>
+    
+                    <div style="font-family: Quicksand; font-weight: 500;" class="flex flex-col gap-[10px]">
+                        <p>Áreas de Atuação</p>
+                        <div class="flex flex-row flex-wrap gap-[30px]">
+                            {% for campo in form %}
+                                {% if 'area_' in campo.name %}
+                                    <div class="form-group">
+                                        {{ campo(class='rounded-lg') }}
+                                        {{ campo.label }}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+    
+                        </div>
+                        
+                    </div>
+                    
+
+                </div>
+                
+                
+            </fieldset>
+            <div class="flex justify-center">
+                {{ form.botaoSubmitEditarPerfil(class='bg-[#6C63FF] hover:bg-[#4941FF] duration-150 cursor-pointer w-[250px] rounded-lg p-[10px] text-white text-[18px]') }}
+
+            </div>
+        </form>
+    </section>
+</main>
+            
+            
+                
+                
+            
+
+
+
+
+
+
+{% endblock %}

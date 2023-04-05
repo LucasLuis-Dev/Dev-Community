@@ -1,0 +1,74 @@
+<nav class="bg-white flex flex-row w-full h-[95px] z-30 fixed justify-between items-center px-[100px]
+max-[400px]:px-[15px] ">
+
+    <div class="">
+        <a  class="flex flex-row justify-center items-center mt-[5px]"  href="{{ url_for('home') }}">
+
+            <img  class="w-[250px] rounded max-[400px]:w-[120px] " src="https://cdn.discordapp.com/attachments/965066624556232737/1088908709037621248/logo2.png" alt="">
+        </a>
+    </div>
+
+    <div class="">
+        <ul style="font-family: Quicksand; font-weight: 700;"  class="flex flex-row gap-[3rem]  items-center justify-center">
+            {% if current_user.is_authenticated %}
+            
+                <li>
+                    <a class="text-[19px] hover:text-[#6C63FF] duration-150" href="{{ url_for('usuarios') }}">Usuários</a>
+                </li>
+                <li>
+                    <a class="text-[19px] hover:text-[#6C63FF] duration-150" href="{{ url_for('contato') }}">Contato</a>
+                </li>
+            
+
+                <li>
+                    <a class="text-[19px] hover:text-[#6C63FF] duration-150" href="{{ url_for('criarPost') }}">Criar Post</a>
+                </li>
+
+                <li>
+
+                    <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName" class="flex gap-[10px] items-center text-sm font-medium rounded-full hover:text-[#A633B4] dark:hover:text-[#A633B4] md:mr-0  dark:text-white" type="button">
+                        <img width="50"  style="border-radius: 50%;" class="w-[70px]" src="{{ url_for('static', filename='fotos_perfil/{}'.format(current_user.fotoPerfil)) }}">
+
+                        <p style="font-family: Quicksand; font-weight: 700;" >
+                            {{ current_user.username }}
+                        </p>
+                        <svg class="w-4 h-4 mx-1.5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
+
+                    
+                    <div id="dropdownAvatarName" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
+
+                        <div class="px-4 py-3 text-sm text-[#6C63FF]">
+                            <div class="font-medium ">Usuário</div>
+                            <div class="truncate">{{ current_user.email }}</div>
+
+                        </div>
+                        <ul class="py-2 text-sm text-[#6C63FF]" aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
+                            <li>
+                                <a href="{{ url_for('perfil') }}" class="block px-4 py-2 hover:bg-gray-100 ">Meu Perfil</a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('criarPost') }}" class="block px-4 py-2 hover:bg-gray-100 ">Criar Postagem</a>
+                            </li>
+                            
+                        </ul>
+                        <div class="py-2">
+                        <a href="{{ url_for('sair') }}" class="block px-4 py-2 text-sm text-[#6C63FF] hover:bg-gray-100 ">Sair</a>
+                        </div>
+                    </div>
+
+                </li>
+
+            {% else %}
+                <li>
+                    <a class="bg-[#6C63FF] hover:bg-[#4941FF] duration-150  text-white p-[10px] px-[35px] rounded-full" href="{{ url_for('login') }}">Entrar</a>
+                </li>
+              
+            {% endif %}
+        </ul>
+        
+
+
+    </div>
+
+</nav>

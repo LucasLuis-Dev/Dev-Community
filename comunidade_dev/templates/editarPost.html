@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<main class="flex flex-row w-full h-screen justify-center items-center px-[4rem]">
+    <section class="flex flex-col w-[50%] justify-center items-center ">
+        <div class="flex flex-col w-[90%]  justify-center items-center ">
+                            
+            <article class="flex flex-col shadow-lg p-[32px] gap-[5px] rounded-lg  w-[80%] bg-[#b1adff2d] ">
+
+                <div class="flex flex-row gap-[20px] w-[100%] justify-between">
+
+                    <div class="flex flex-row  items-center gap-[20px]"> 
+                        <img class="w-[70px] rounded-full" src="{{ url_for('static', filename='fotos_perfil/{}'.format(post.autor.fotoPerfil)) }}" >
+                    
+                        <div >
+                            <div class="flex flex-col mt-[20px]">
+                                <div >
+                                    <h4 style="font-family: Quicksand; font-weight: 700;" class="text-[23px] capitalize" >{{ post.autor.username }}</h4>
+                                    <div class="flex flex-row flex-wrap gap-[10px] w-[150%]">
+                                        {% for area in post.autor.areas.split(';') %}
+                                            <h5 style="font-family: Quicksand; font-weight: 500;">{{ area }}</h5>
+                                        {% endfor %}
+    
+                                    </div>
+                                    
+                                </div>
+                                <div >
+                                    
+                                    <div class="flex flex-row flex-wrap gap-[10px] w-[150%]">
+                                        {% for stack in post.autor.stacks.split(';') %}
+                                            <h5 style="font-family: Quicksand; font-weight: 500;">{{ stack }}</h5>
+                                        {% endfor %}
+    
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="flex flex-row gap-[15px] justify-center items-center"> 
+                        {% if current_user == post.autor %}
+                        
+                            <form method="POST" action="{{url_for('excluirPost', post_id = post.id)}}">
+                                <button type="submit" class="">
+    
+                                    <img  width="30px" src="https://cdn.discordapp.com/attachments/965066624556232737/1088940797828792350/lixeira.png" alt="">
+    
+                                </button>
+                            </form>
+
+                        {% else %}
+                        
+                            
+                            <img width="200px" src="https://cdn.discordapp.com/attachments/965066624556232737/1088937491974848584/logo_2_-removebg-preview.png" alt="">
+                         
+                            
+                        {% endif %}
+                        
+                    </div>
+
+                    
+                </div>
+
+                <div class="flex flex-col w-[100%] justify-start items-start">
+                    <div style="text-decoration: none; font-family: Quicksand; font-weight: 500;" class="text-[#6C63FF] text-left">
+                        {% if post.fotoPost: %}
+                            <img class="w-[100%] text-center mb-[15px]" src="{{ url_for('static', filename='fotos_posts/{}'.format(post.fotoPost)) }}" >
+                        {% endif %}
+                        <p class="w-full mb-[10px]  text-[19px]" >{{ post.corpo }}</p>
+                        <h6 class="w-full mb-[10px] " >{{ post.dataCriacao.strftime('%d/%m/%Y')  }}</h6>
+                    </div>
+                    
+                </div>
+                
+            </article>
+            
+        </div>
+        
+    </section>
+
+    <section class="flex flex-row justify-center items-center w-[50%]">
+        <form style="background-color: #b1adff2d;" method="POST" id="form_editar_post" action="" class="flex shadow-lg flex-col gap-[50px] p-[4rem] rounded-lg" enctype="multipart/form-data">
+            {{ form.csrf_token }}
+
+            <legend style="font-family: Quicksand; font-weight: 700;" class="text-[40px] text-center">Editar Post</legend>
+
+            <fieldset class="flex flex-col gap-[30px]">
+
+                <div class="form-group">
+                    {{ form.foto_post.label}}
+                    {{ form.foto_post(class='form-control-file')}}
+                    {% if form.foto_post.errors %}
+                        {% for error in form.foto_post.errors %}
+                            <pan class="text-danger">{{ error }}</pan>
+                            <br>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+               
+                <div  style="font-family: Quicksand; font-weight: 500;" class="flex flex-col gap-[10px]">
+                    {{ form.corpo.label(class='form-control-label') }}
+                    {% if form.corpo.errors %}
+                        {{ form.corpo(class='form-control is-invalid') }}
+
+                        <div class="invalid-feedback">
+                            {% for error in form.corpo.errors %}
+                                {{ error}}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.corpo(class='px-[15px] h-[40px] w-[550px] border-[2px] rounded-lg') }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="flex justify-center">
+                {{ form.botaoSubmitCriarPost(class='bg-[#6C63FF] hover:bg-[#4941FF] duration-150 cursor-pointer w-[150px] rounded-lg p-[10px] text-white text-[18px]') }}
+
+            </div>
+        </form>
+            
+
+    </section>
+
+</main>
+{% endblock %}

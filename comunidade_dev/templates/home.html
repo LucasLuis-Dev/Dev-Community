@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+
+
+{% block body %}
+<main>
+    {% if postComFoto %}
+    <section class="flex flex-col gap-[40px] w-full mt-[130px] justify-center items-center ">
+    {% elif not postComFoto %}
+    <section class="flex flex-col gap-[40px] w-full h-screen justify-center items-center ">
+    {% endif %}
+        {% if quantPosts > 0 %}
+            <div class="flex flex-col gap-[40px] w-[80%]   justify-center items-center">
+                {% for post in posts %}
+                <a style="text-decoration: none; font-family: Quicksand; font-weight: 500;" class="flex flex-col   justify-center items-center w-[100%]" href="{{ url_for('exibirPost', post_id=post.id) }}">
+                
+                    <div class="flex flex-col  w-[90%]  justify-center items-center mb-[30px]">
+                                
+                        <article class="flex shadow-lg hover:scale-110 duration-150 flex-col p-[32px] gap-[5px] rounded-lg  w-[80%] bg-[#b1adff2d] ">
+        
+                            <div class="flex flex-row gap-[20px] mb-[15px] w-[100%] justify-between">
+        
+                                <div class="flex flex-row  items-center gap-[20px]"> 
+                                    <img class="w-[70px] rounded-full" src="{{ url_for('static', filename='fotos_perfil/{}'.format(post.autor.fotoPerfil)) }}" >
+                                    
+                                    <div class="flex flex-col mt-[20px]">
+                                        <div >
+                                            <h4 style="font-family: Quicksand; font-weight: 700;" class="text-[23px] capitalize" >{{ post.autor.username }}</h4>
+                                            <div class="flex flex-row flex-wrap gap-[10px] w-[150%]">
+                                                {% for area in post.autor.areas.split(';') %}
+                                                    <h5 style="font-family: Quicksand; font-weight: 500;">{{ area }}</h5>
+                                                {% endfor %}
+            
+                                            </div>
+                                            
+                                        </div>
+                                        <div >
+                                            
+                                            <div class="flex flex-row flex-wrap gap-[10px] w-[150%]">
+                                                {% for stack in post.autor.stacks.split(';') %}
+                                                    <h5 style="font-family: Quicksand; font-weight: 500;">{{ stack }}</h5>
+                                                {% endfor %}
+            
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+        
+                                <div class="flex items-center text-center justify-center">
+                                    <img width="200px" src="../static/logo_2_-removebg-preview.png" alt="">
+                                </div>
+                            </div>
+        
+                            <div class="flex flex-col w-[100%] justify-start items-start">
+                                <div class="text-[#6C63FF] text-left">
+                                    {% if post.fotoPost: %}
+                                        <img class="w-[100%] text-center mb-[15px]" src="{{ url_for('static', filename='fotos_posts/{}'.format(post.fotoPost)) }}" >
+                                    {% endif %}
+                                    <p class="w-full mb-[10px] text-[23px]" >{{ post.corpo }}</p>
+                                    <h6 class="w-full mb-[10px] ">{{ post.dataCriacao.strftime('%d/%m/%Y')  }}</h6>
+
+                                </div>
+                                    
+                                
+                            </div>
+                            
+                        </article>
+                        
+                        </div>
+                </a>
+                    
+            
+                {% endfor %}
+            </div>
+
+        {% else %}
+            <div class="flex flex-col gap-[20px] w-[80%] h-screen  justify-center items-center">
+
+                <h1 style="font-family: Quicksand; font-weight: 700;" class="text-[40px] text-center">Parece que ainda possuimos postagens na plataforma, seja o primeiro e compartilhe uma ideia!</h1>
+
+                <img src="https://cdn.discordapp.com/attachments/965066624556232737/1091547453548920842/undraw_Code_thinking_re_gka2.png" alt="">
+
+                
+
+            </div>
+
+        {% endif %}
+        
+    </section>
+</main>
+        
+        
+   
+{% endblock %}
+
+    

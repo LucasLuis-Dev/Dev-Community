@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+{% if meus_posts %}
+<main class="flex flex-col gap-[5rem] justify-center">
+
+{% else %}
+
+<main class="flex flex-col gap-[5rem] justify-center h-screen">
+{% endif %}
+
+    <section class="flex flex-col justify-center items-center mt-[130px]">
+        <div style="font-family: Quicksand; font-weight: 500;" class="flex flex-row bg-[#6C63FF]  rounded-lg w-[80%] justify-start pt-[10rem]">
+
+            <div style="background-color: #f8f8f8;" class="w-full shadow-lg px-[100px] pb-[20px] z-10">
+                <div class="flex flex-row justify-between" >
+                    <img class="rounded-full w-[200px] mb-[10px] border-[8px] border-white mt-[-60px]" src="{{ fotoPerfilAtual }}" width="205" >
+
+                    <a  href="{{url_for('editarPerfil')}}">
+                        <img width="30px" class="mt-[10px]" src="../static/la_pen(1).png" alt="">
+                    </a>
+                </div>
+                
+                <div class="flex flex-row justify-between">
+                    
+                    <div>
+                        <h4 class="capitalize text-[26px] font-bold" >{{ current_user.username }}</h4>
+                        <h5 class="text-[20px]" >{{current_user.email }}</h5>
+                        
+                    </div>
+                    <div class=" w-[30%]">
+                        <h2 style="font-weight: 700;" class="mb-[10px] text-[26px]" >Área de Atuação</h2>
+                        <div class="flex flex-row flex-wrap gap-[20px]">
+                            {% for area in current_user.areas.split(';') %}
+                                <h5 class="text-[20px]">{{ area }}</h5>
+                            {% endfor %}
+                        </div>
+                        
+                    </div>
+                    <div class=" w-[30%]">
+                        <h2 style="font-weight: 700;" class="mb-[10px] text-[26px]" >Tecnologias</h2>
+                        <div class="flex flex-row flex-wrap gap-[20px]">
+                            {% for stack in current_user.stacks.split(';') %}
+                                <h5 class="text-[20px]">{{ stack }}</h5>
+                            {% endfor %}
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+    
+                
+                  
+            </div>
+                
+        </div>
+            
+
+    </section>
+
+    <section class="flex flex-col w-full  justify-center items-center ">
+        <div class="flex flex-col w-[80%]  bg-[#f8f8f8] shadow-lg rounded-lg  justify-center ">
+            <h1 style="font-family: Quicksand; font-weight: 700;" class="mt-[30px] text-center text-[26px] font-bold mb-[30px]">
+                Suas Publicações
+            </h1>
+            <div class="flex flex-col shadow-lg rounded-lg justify-center ">
+                {% for post in meus_posts %}
+                <a style="text-decoration: none; font-family: Quicksand; font-weight: 500;" class="flex flex-col  justify-center items-center w-[100%]" href="{{ url_for('exibirPost', post_id=post.id) }}">
+                
+                    <div class="flex flex-col  w-[90%]  justify-center items-center mb-[30px]">
+                                
+                        <article class="flex shadow-lg flex-col  hover:scale-105 duration-150 p-[32px] gap-[5px] rounded-lg  w-[80%] bg-[#b1adff2d] ">
+        
+                            <div class="flex flex-row gap-[20px] mb-[15px] w-[100%] justify-between">
+        
+                                <div class="flex flex-row  items-center gap-[20px]"> 
+                                    <img class="w-[70px] rounded-full" src="{{ url_for('static', filename='fotos_perfil/{}'.format(post.autor.fotoPerfil)) }}" >
+                                    
+                                    <div class="flex flex-col mt-[20px]">
+                                        <div >
+                                            <h4 style="font-family: Quicksand; font-weight: 700;" class="text-[23px] capitalize" >{{ post.autor.username }}</h4>
+                                            <div class="flex flex-row flex-wrap gap-[10px] w-[150%]">
+                                                {% for area in post.autor.areas.split(';') %}
+                                                    <h5 style="font-family: Quicksand; font-weight: 500;">{{ area }}</h5>
+                                                {% endfor %}
+            
+                                            </div>
+                                            
+                                        </div>
+                                        <div >
+                                            
+                                            <div class="flex flex-row flex-wrap gap-[10px] w-[150%]">
+                                                {% for stack in post.autor.stacks.split(';') %}
+                                                    <h5 style="font-family: Quicksand; font-weight: 500;">{{ stack }}</h5>
+                                                {% endfor %}
+            
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+        
+                                <div class="flex items-center text-center justify-center">
+                                    <img width="200px" src="../static/logo_2_-removebg-preview.png" alt="">
+                                </div>
+                            </div>
+        
+                            <div class="flex flex-col w-[100%] justify-start items-start">
+                                <div class="text-[#6C63FF] text-left">
+                                    {% if post.fotoPost: %}
+                                        <img class="w-[100%] text-center mb-[15px]" src="{{ url_for('static', filename='fotos_posts/{}'.format(post.fotoPost)) }}" >
+                                    {% endif %}
+                                    <p class="w-full mb-[10px] text-[23px]" >{{ post.corpo }}</p>
+                                    <h6 class="w-full mb-[10px] ">{{ post.dataCriacao.strftime('%d/%m/%Y')  }}</h6>
+
+                                </div>
+                                    
+                                
+                            </div>
+                            
+                        </article>
+                        
+                        </div>
+                </a>
+                    
+                {% endfor %}
+            </div>
+        </div>
+
+    </section>
+ </main>
+
+{% endblock %}

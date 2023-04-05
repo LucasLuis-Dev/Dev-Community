@@ -1,0 +1,44 @@
+/*======= VERSÃO PARA DESKTOP ================*/
+
+
+nav {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px 80px;
+
+    position: fixed;
+
+    width: 90vw;
+
+    background-color: beige;
+}
+
+.logo a {
+
+
+    text-decoration: none;
+
+}
+
+
+ul {
+    display: flex;
+    flex-direction: row;
+
+    list-style: none;
+
+    gap: 30px;
+}
+
+ul li a {
+    text-decoration: none;
+}
+
+
+
+/*======= VERSÃO PARA MOBILE ================*/
+

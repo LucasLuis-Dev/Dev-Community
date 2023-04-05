@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<main>
+    <section class="flex flex-row w-full h-screen justify-center items-center gap-[80px]">
+        <form style="background-color: #b1adff2d ;" method="POST" action="" class="flex flex-col gap-[50px] p-[4rem] rounded-lg">
+            {{ form.csrf_token }}
+
+            <legend style="font-family: Quicksand; font-weight: 700;" class="text-[40px] text-center">Recuperar Senha</legend>
+
+            <fieldset class="flex flex-col gap-[30px] w-[300px]">
+
+                <div style="font-family: Quicksand; font-weight: 500;" class="flex flex-col gap-[10px]">
+                    {{ form.email.label(class='form-control-label') }}
+                    {% if form.email.errors %}
+                        {{ form.email(class='form-control is-invalid') }}
+
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                {{ error}}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class='px-[15px] h-[40px] w-[350px] border-[2px]  rounded-lg') }}
+                    {% endif %}
+                </div>
+                <div style="font-family: Quicksand; font-weight: 500;" class="flex flex-col gap-[10px]">                        
+                    {{ form.senha.label(class='form-control-label') }}
+                    {% if form.senha.errors %}
+                        {{ form.senha(class='form-control is-invalid') }}
+
+                        <div class="invalid-feedback">
+                            {% for error in form.senha.errors %}
+                                {{ error}}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.senha(class='px-[15px] h-[40px] w-[350px] border-[2px]  rounded-lg') }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="flex justify-center">
+                {{ form.botaoSubmitAlterarSenha(class=' bg-[#6C63FF] w-[250px] rounded-full p-[10px] text-white text-[18px]') }}
+            </div>
+
+        </form>
+        <div>
+            <img src="../static/undraw_maker_launch_re_rq81.svg" alt="">
+        </div>
+    </section>
+</main>
+
+            
+            
+                
+                
+            
+
+
+{% endblock%}

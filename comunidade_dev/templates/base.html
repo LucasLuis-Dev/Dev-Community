@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev community</title>
+
+    {% block head %}
+
+    {% endblock %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
+    
+</head> 
+<body >
+    
+    {% include "navbar.html" %}
+    
+    <div class="flex justify-center items-center">
+        {% with mensagens = get_flashed_messages(with_categories=True) %}
+           
+            {% if mensagens %}
+                {% for categoria, mensagem in mensagens %}
+                    {% if categoria == 'alert-danger' %}
+                        <div class="bg-red-500 p-4 text-white absolute rounded-lg mt-12">
+                        {{ mensagem }}
+                        </div>
+                    {% else %}
+                        
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        
+    </div>
+
+    {% block body %}
+    {% endblock %}
+
+    <footer class="flex flex-row bottom-[0px] w-full bg-[#6C63FF] text-white h-[100px] justify-between items-center px-[120px] mt-[25px]
+    max-[400px]:text-[11px] max-[400px]:px-[10px] ">
+        
+        <h2>@ 2023</h2>
+
+        <h2>Feito com ❤️, Flask e Python</h2>
+
+        <h2>LucasLuis-Dev</h2>
+
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
+</body>
+</html>

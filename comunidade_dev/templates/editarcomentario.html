@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<main class="flex flex-row w-full gap-[50px] h-screen justify-center items-center px-[4rem]">
+    <section class="flex flex-col gap-[40px] w-[50%] justify-center items-center ">
+        <div class="flex flex-col shadow-lg gap-[10px] w-full p-[20px] rounded-lg bg-[#b1adff2d] mb-[30px]">
+                        
+            <div class="flex items-centerx w-full justify-between">
+                <div  class="flex flex-row items-center  gap-[20px]">
+
+                    <img class="w-[60px]" style="border-radius: 50%;" src="{{ url_for('static', filename='fotos_perfil/{}'.format(comentario.autor.fotoPerfil)) }}"  width="90" >
+                    
+                    <div class="flex flex-col">
+                        <h4 style="font-family: Quicksand; font-weight: 700;" id="nome-coment-autor" >{{ comentario.autor.username }}</h4>
+                        <h6 style="font-family: Quicksand; font-weight: 500;" id="data-coment" >{{ comentario.dataCriacao.strftime('%d/%m/%Y')  }}</h6>
+                    </div>
+
+                </div>
+                {% if current_user == comentario.autor %}
+                <form method="POST" action="{{url_for('excluirComentario', post_id=post_id, comentario_id = comentario.id)}}">
+                    <div class="flex flex-row px-[4rem] items-center justify-center ">
+                        <button  type="submit" >
+                            <img  width="30px" src="https://cdn.discordapp.com/attachments/965066624556232737/1088940797828792350/lixeira.png" alt="">
+                        </button>
+                    </div>
+                    
+                </form>
+            {% endif %}
+
+            </div>
+            
+            <div id="coment-coluna2">
+                <p id="corpo-comentario" >{{ comentario.corpo }}</p>
+            </div>
+            
+        </div>
+    </section>
+    <section class="flex flex-row  w-[50%] justify-center items-center">
+        <div style="background-color: #b1adff2d;" class="flex flex-col gap-[1rem] shadow-lg">
+            <form  method="POST" action="" class="flex flex-col  gap-[50px] p-[4rem]  rounded-lg" enctype="multipart/form-data">
+                {{ form_coment.csrf_token }}
+    
+                <legend style="font-family: Quicksand; font-weight: 700;" class="text-[40px] text-center">Editar Comentario</legend>
+    
+                <fieldset class="flex flex-col gap-[30px]">
+                    <div style="font-family: Quicksand; font-weight: 500;" class="flex flex-col gap-[10px]">
+                        {{ form_coment.corpo.label(class='form-control-label') }}
+                        {% if form_coment.corpo.errors %}
+                            {{ form_coment.corpo(class='form-control is-invalid') }}
+    
+                            <div class="invalid-feedback">
+                                {% for error in form_coment.corpo.errors %}
+                                    {{ error}}
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form_coment.corpo(class='px-[15px] h-[70px] w-[550px] border-[2px] rounded-lg') }}
+                        {% endif %}
+                    </div>
+                </fieldset>
+                <div class="flex justify-center gap-[30px]">
+                    
+                    {{ form_coment.botaoSubmitCriarComentario(class='bg-[#6C63FF] hover:bg-[#4941FF] duration-150 cursor-pointer w-[250px] rounded-lg p-[10px] text-white text-[18px]') }}
+                </div>
+            </form>
+            
+        </div>
+        
+
+    </section>
+</main>
+
+{% endblock%}

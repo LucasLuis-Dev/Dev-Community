@@ -2,24 +2,24 @@
 
 {% block body %}
 
-<main>
+<main class="px-[10%]">
 
-    <section class="flex flex-row gap-[180px] w-full h-screen justify-center items-center
+    <section class="flex flex-row w-full h-screen justify-between items-center
     max-[400px]:px-[15px] max-[400px]:flex-col max-[400px]:gap-[0px] max-[400px]:mt-[0px]">
 
-        <div  class="max-[400px]:invisible">
-            <img src="../static/undraw_my_password_re_ydq7.svg" alt="">
+        <div  class="w-[50%] max-[400px]:invisible">
+            <img class="w-full" src="../static/20824341_6368590.svg" alt="">
         </div>
 
-        <form  style="background-color: #b1adff2d ;" method="POST" action="" class="flex flex-col shadow-lg gap-[50px] p-[4rem] rounded-lg
+        <form method="POST" action="" class="flex flex-col w-[45%] gap-[50px] p-[4rem]
         max-[400px]:w-full max-[400px]:p-[2rem]">
             {{ formCriarConta.csrf_token }}
-            <legend style="font-family: Quicksand; font-weight: 700;" class="text-[40px] text-center" >Criar Conta</legend>
+            <legend  class="text-[40px] font-bold">Criar Conta</legend>
 
-            <fieldset class="flex flex-col gap-[30px] w-[300px]">
+            <fieldset class="flex flex-col gap-[30px]">
 
-                <div style="font-family: Quicksand; font-weight: 500;" class="flex flex-col gap-[10px]">
-                    {{ formCriarConta.username.label(class='w-full') }}
+                <div  class="flex flex-col gap-[10px]">
+                    
                     {% if formCriarConta.username.errors %}
                         {{ formCriarConta.username(class='px-[15px] h-[40px] w-[250px] border-[2px]  rounded-lg')}}
 
@@ -29,12 +29,12 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ formCriarConta.username(class='px-[15px] h-[40px] w-[450px] border-[2px]  rounded-lg max-[400px]:w-full') }}
+                        {{ formCriarConta.username(class='px-[15px] h-[40px] w-[100%] border-none bg-[#EAF0F7]  rounded-lg max-[400px]:w-full', placeholder='Digite seu Nome') }}
                     {% endif %}
                 </div>
 
-                <div style="font-family: Quicksand; font-weight: 500;" class="flex flex-col gap-[10px]">
-                    {{ formCriarConta.email.label(class='form-control-label') }}
+                <div  class="flex flex-col gap-[10px]">
+
                     {% if formCriarConta.email.errors %}
                         {{ formCriarConta.email(class='px-[15px] h-[40px] w-[450px] border-[2px]  rounded-lg') }}
 
@@ -44,12 +44,12 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ formCriarConta.email(class='px-[15px] h-[40px] border-[2px]  rounded-lg max-[400px]:w-full') }}
+                        {{ formCriarConta.email(class='px-[15px] h-[40px] w-full border-none bg-[#EAF0F7] rounded-lg max-[400px]:w-full', placeholder='Digite seu Email') }}
                     {% endif %}
                 </div>
 
-                <div style="font-family: Quicksand; font-weight: 500;" class="flex flex-col gap-[10px]">
-                    {{ formCriarConta.senha.label(class='form-control-label') }}
+                <div  class="flex flex-col gap-[10px]">
+                    
                     {% if formCriarConta.senha.errors %}
                         {{ formCriarConta.senha(class='px-[15px] h-[40px] w-[450px] border-[2px]  rounded-lg max-[400px]:w-full')  }}
 
@@ -59,28 +59,32 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ formCriarConta.senha(class='px-[15px] h-[40px] border-[2px]  rounded-lg max-[400px]:w-full') }}
+                        {{ formCriarConta.senha(class='px-[15px] h-[40px] border-none bg-[#EAF0F7] rounded-lg max-[400px]:w-full', placeholder='Digite sua Senha') }}
                     {% endif %}
                 </div>
 
-                <div style="font-family: Quicksand; font-weight: 500;" class="flex flex-col gap-[10px]">
-                    {{ formCriarConta.confirmacaoSenha.label(class='form-control-label') }}
+                <div  class="flex flex-col gap-[10px]">
+                    
                     {% if formCriarConta.confirmacaoSenha.errors %}
                         {{ formCriarConta.confirmacaoSenha(class='form-control is-invalid') }}
-
                         <div class="invalid-feedback">
                             {% for error in formCriarConta.confirmacaoSenha.errors %}
                                 {{ error}}
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ formCriarConta.confirmacaoSenha(class='px-[15px] h-[40px] border-[2px]  rounded-lg') }}
+                        {{ formCriarConta.confirmacaoSenha(class='px-[15px] h-[40px] border-none bg-[#EAF0F7] rounded-lg', placeholder='Confirme sua Senha') }}
                     {% endif %}
                 </div>  
             </fieldset>
 
+            <div class="flex flex-row gap-[20px] text-[#6C63FF] justify-between 
+                max-[400px]:w-full">
+                    <a class="hover:text-[#4941FF] max-[400px]:text-[15px]" href="{{ url_for('login') }}">Já possui conta?</a> 
+            </div>
+
             <div class="flex items-center justify-center">
-                {{ formCriarConta.botaoSubmitCriarConta(class=' bg-[#6C63FF] hover:bg-[#4941FF] duration-150 cursor-pointer w-[150px] rounded-full p-[10px] text-white text-[18px]') }}
+                {{ formCriarConta.botaoSubmitCriarConta(class='bg-[#6C63FF] hover:bg-[#4941FF] duration-150 cursor-pointer w-[150px] rounded-full px-[45px]  py-[13px] text-white font-semibold text-[18px]') }}
             </div>
         </form>
         

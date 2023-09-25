@@ -189,7 +189,7 @@ def editarPerfil():
             current_user.fotoPerfil= nome_imagem
 
         current_user.stacks = atualizarStacks(form)
-        current_user.areas = atualizarAreas(form)
+        current_user.areas = form.areaAtuacao.data
 
         database.session.commit()
         flash('Perfil atualizado com sucesso', 'alert-success')
@@ -198,6 +198,8 @@ def editarPerfil():
     elif request.method == 'GET':
         form.email.data = current_user.email
         form.username.data = current_user.username
+        form.areaAtuacao.data = current_user.areas
+        
         
 
     fotoPerfilAtual = url_for('static', filename='fotos_perfil/{}'.format(current_user.fotoPerfil))
@@ -214,14 +216,7 @@ def atualizarStacks(form):
     return ';'.join(lista_stacks)
 
 
-def atualizarAreas(form):
-    lista_areas = []
-    for campo in form:
-        if 'area_' in campo.name:
-            if campo.data:
-                lista_areas.append(campo.label.text)
 
-    return ';'.join(lista_areas)
 
 
 

@@ -50,19 +50,8 @@ class FormEditarPerfil(FlaskForm):
     tech_HTML = BooleanField('HTML')
     tech_CSS = BooleanField('CSS')
 
-
-
-    area_Backend = BooleanField('Backend')
-    area_Frontend = BooleanField('Frontend')
-    area_FullStack = BooleanField('FullStack')
-    area_DataScience = BooleanField('Cientista de Dados')
-    area_DevOps = BooleanField('DevOps')
-    area_AnalistaDados = BooleanField('Analista de Dados')
-    area_EngenheiroDados = BooleanField('Engenheiro de Dados')
-    area_Mobile = BooleanField('Mobile')
-    area_DBA = BooleanField('Administrador de Banco de Dados')
-    area_CyberSecurity = BooleanField('Segurança da Informação')
-
+    areaAtuacao = StringField('Digite sua Área de Atuação', validators=[DataRequired()])
+    
     botaoSubmitEditarPerfil = SubmitField('Confirmar Edição')
 
     def validate_email(self, email):
@@ -77,7 +66,7 @@ class FormEditarPerfil(FlaskForm):
 class FormCriarPost(FlaskForm):
     foto_post = FileField('Adicione uma foto ao post', validators=[FileAllowed(['jpg','png','jpeg'])])
     corpo = TextAreaField('Escreva seu post aqui', validators=[DataRequired()])
-    botaoSubmitCriarPost = SubmitField('Criar')
+    botaoSubmitCriarPost = SubmitField('Criar Postagem')
 
 
 
@@ -87,7 +76,7 @@ class FormCriarComentario(FlaskForm):
 
 class FormRecuperarSenha(FlaskForm):
     email = StringField('E-mail', validators=[DataRequired(),Email()])
-    botaoSubmitEnviarEmail = SubmitField('Recuperar Senha')
+    botaoSubmitEnviarEmail = SubmitField('Enviar Email')
 
 
 class FormAlterarSenha(FlaskForm):

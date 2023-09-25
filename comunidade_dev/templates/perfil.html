@@ -11,39 +11,39 @@
 <main class="flex flex-col gap-[5rem] justify-center h-screen">
 {% endif %}
 
-    <section class="flex flex-col justify-center items-center mt-[130px]">
-        <div style="font-family: Quicksand; font-weight: 500;" class="flex flex-row bg-[#6C63FF]  rounded-lg w-[80%] justify-start pt-[10rem]">
+    <section class="flex flex-col pr-[10%] pl-[20%] justify-center items-center mt-[50px]">
+        <div class="flex flex-row bg-[#6C63FF] h-[50px]  rounded-lg w-[80%] justify-start pt-[10rem]">
 
-            <div style="background-color: #f8f8f8;" class="w-full shadow-lg px-[100px] pb-[20px] z-10">
+            <div  class="w-full   px-[80px] pb-[20px] z-10">
                 <div class="flex flex-row justify-between" >
-                    <img class="rounded-full w-[200px] mb-[10px] border-[8px] border-white mt-[-60px]" src="{{ fotoPerfilAtual }}" width="205" >
+                    <img class="rounded-full w-[200px] mb-[10px] border-[8px] border-white mt-[-60px]" src="{{ fotoPerfilAtual }}" >
 
-                    <a  href="{{url_for('editarPerfil')}}">
-                        <img width="30px" class="mt-[10px]" src="../static/la_pen(1).png" alt="">
+                    <a class="flex items-center justify-center mt-[15px] hover:bg-[#6C63FF] hover:fill-white rounded-full w-[50px] h-[50px] " href="{{url_for('editarPerfil')}}">
+                        <svg class="w-[50%] " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/></svg>
                     </a>
                 </div>
                 
-                <div class="flex flex-row justify-between">
+                <div class="grid grid-cols-3 gap-[40px] w-full justify-between items-start">
                     
                     <div>
-                        <h4 class="capitalize text-[26px] font-bold" >{{ current_user.username }}</h4>
-                        <h5 class="text-[20px]" >{{current_user.email }}</h5>
+                        <h4 class="capitalize text-[24px] font-bold" >{{ current_user.username }}</h4>
+                        <h5 class="text-[18px]" >{{current_user.email }}</h5>
                         
                     </div>
-                    <div class=" w-[30%]">
-                        <h2 style="font-weight: 700;" class="mb-[10px] text-[26px]" >Área de Atuação</h2>
+                    <div class=" w-full">
+                        <h2 class="mb-[10px] text-[24px] font-bold" >Área de Atuação</h2>
                         <div class="flex flex-row flex-wrap gap-[20px]">
                             {% for area in current_user.areas.split(';') %}
-                                <h5 class="text-[20px]">{{ area }}</h5>
+                                <h5 class="text-[18px]">{{ area }}</h5>
                             {% endfor %}
                         </div>
                         
                     </div>
-                    <div class=" w-[30%]">
-                        <h2 style="font-weight: 700;" class="mb-[10px] text-[26px]" >Tecnologias</h2>
+                    <div class=" w-full">
+                        <h2  class="mb-[10px] text-[24px] font-bold" >Tecnologias</h2>
                         <div class="flex flex-row flex-wrap gap-[20px]">
                             {% for stack in current_user.stacks.split(';') %}
-                                <h5 class="text-[20px]">{{ stack }}</h5>
+                                <h5 class="text-[18px]">{{ stack }}</h5>
                             {% endfor %}
                         </div>
                         
@@ -60,30 +60,30 @@
 
     </section>
 
-    <section class="flex flex-col w-full  justify-center items-center ">
-        <div class="flex flex-col w-[80%]  bg-[#f8f8f8] shadow-lg rounded-lg  justify-center ">
-            <h1 style="font-family: Quicksand; font-weight: 700;" class="mt-[30px] text-center text-[26px] font-bold mb-[30px]">
+    <section class="flex flex-col w-full pr-[10%] pl-[20%]  justify-center items-center ">
+        <div class="flex flex-col w-[80%] mt-[250px] rounded-lg  justify-center ">
+            <h1 class="mt-[30px] font-bold text-center text-[26px] font-bold mb-[30px]">
                 Suas Publicações
             </h1>
-            <div class="flex flex-col shadow-lg rounded-lg justify-center ">
+            <div class="grid grid-cols-3  justify-between items-start ">
                 {% for post in meus_posts %}
-                <a style="text-decoration: none; font-family: Quicksand; font-weight: 500;" class="flex flex-col  justify-center items-center w-[100%]" href="{{ url_for('exibirPost', post_id=post.id) }}">
+                <a  class="flex flex-col justify-center items-center w-full" href="{{ url_for('exibirPost', post_id=post.id) }}">
                 
-                    <div class="flex flex-col  w-[90%]  justify-center items-center mb-[30px]">
+                    <div class="flex flex-col  w-[100%]  justify-center items-center mb-[30px]">
                                 
-                        <article class="flex shadow-lg flex-col  hover:scale-105 duration-150 p-[32px] gap-[5px] rounded-lg  w-[80%] bg-[#b1adff2d] ">
+                        <article class="flex border-b-2 border-[#AD42BB] h-[400px] pb-[50px] hover:scale-105 duration-150 flex-col  gap-[5px] w-[80%] ">
         
                             <div class="flex flex-row gap-[20px] mb-[15px] w-[100%] justify-between">
         
                                 <div class="flex flex-row  items-center gap-[20px]"> 
-                                    <img class="w-[70px] rounded-full" src="{{ url_for('static', filename='fotos_perfil/{}'.format(post.autor.fotoPerfil)) }}" >
+                                    <img class="w-[50px] rounded-full" src="{{ url_for('static', filename='fotos_perfil/{}'.format(post.autor.fotoPerfil)) }}" >
                                     
                                     <div class="flex flex-col mt-[20px]">
                                         <div >
-                                            <h4 style="font-family: Quicksand; font-weight: 700;" class="text-[23px] capitalize" >{{ post.autor.username }}</h4>
+                                            <h4 class="text-[18px] font-bold capitalize" >{{ post.autor.username }}</h4>
                                             <div class="flex flex-row flex-wrap gap-[10px] w-[150%]">
                                                 {% for area in post.autor.areas.split(';') %}
-                                                    <h5 style="font-family: Quicksand; font-weight: 500;">{{ area }}</h5>
+                                                    <h5>{{ area }}</h5>
                                                 {% endfor %}
             
                                             </div>
@@ -93,7 +93,7 @@
                                             
                                             <div class="flex flex-row flex-wrap gap-[10px] w-[150%]">
                                                 {% for stack in post.autor.stacks.split(';') %}
-                                                    <h5 style="font-family: Quicksand; font-weight: 500;">{{ stack }}</h5>
+                                                    <h5 {{ stack }}</h5>
                                                 {% endfor %}
             
                                             </div>
@@ -103,22 +103,17 @@
                                     
                                 </div>
         
-                                <div class="flex items-center text-center justify-center">
-                                    <img width="200px" src="../static/logo_2_-removebg-preview.png" alt="">
-                                </div>
+                               
                             </div>
         
-                            <div class="flex flex-col w-[100%] justify-start items-start">
-                                <div class="text-[#6C63FF] text-left">
-                                    {% if post.fotoPost: %}
-                                        <img class="w-[100%] text-center mb-[15px]" src="{{ url_for('static', filename='fotos_posts/{}'.format(post.fotoPost)) }}" >
-                                    {% endif %}
-                                    <p class="w-full mb-[10px] text-[23px]" >{{ post.corpo }}</p>
-                                    <h6 class="w-full mb-[10px] ">{{ post.dataCriacao.strftime('%d/%m/%Y')  }}</h6>
+                            <div class="flex flex-col w-full justify-start gap-[20px] items-start">
+                            
+                                {% if post.fotoPost: %}
+                                    <img class="w-full text-center rounded-md" src="{{ url_for('static', filename='fotos_posts/{}'.format(post.fotoPost)) }}" >
+                                {% endif %}
+                                <p class="w-full  text-[19px] text-left" >{{ post.corpo }}</p>
+                                <h6 class="w-full ">{{ post.dataCriacao.strftime('%d/%m/%Y')  }}</h6>
 
-                                </div>
-                                    
-                                
                             </div>
                             
                         </article>

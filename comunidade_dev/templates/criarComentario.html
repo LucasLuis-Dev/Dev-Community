@@ -3,15 +3,15 @@
 {% block body %}
 
 <main>
-    <section class="flex flex-row  w-full h-screen justify-center items-center">
-        <form style="background-color: #b1adff2d;" method="POST" action="" class="flex flex-col shadow-lg gap-[50px] p-[4rem]  rounded-lg" enctype="multipart/form-data">
+    <section class="flex flex-row  w-full h-screen justify-center gap-[50px] items-center pl-[20%] pr-[10%]">
+        <form  method="POST" action="" class="flex flex-col w-[50%] gap-[40px] p-[4rem]  rounded-lg" enctype="multipart/form-data">
             {{ form_coment.csrf_token }}
 
-            <legend style="font-family: Quicksand; font-weight: 700;" class="text-[40px] text-center">Criar Comentario</legend>
+            <legend class="text-[40px] font-bold text-left">Criar Comentario</legend>
 
             <fieldset class="flex flex-col gap-[30px]">
-                <div style="font-family: Quicksand; font-weight: 500;" class="flex flex-col gap-[10px]">
-                    {{ form_coment.corpo.label(class='form-control-label') }}
+                <div  class="flex flex-col gap-[10px]">
+                
                     {% if form_coment.corpo.errors %}
                         {{ form_coment.corpo(class='form-control is-invalid') }}
 
@@ -21,17 +21,20 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form_coment.corpo(class='px-[15px] h-[70px] w-[550px] border-[2px] rounded-lg') }}
+                        {{ form_coment.corpo(class='p-[15px] h-[150px] w-full border-none bg-[#EAF0F7] rounded-lg max-[400px]:w-full',placeholder="Escreva seu comentário aqui") }}
                     {% endif %}
                 </div>
             </fieldset>
             <div class="flex justify-center gap-[30px]">
                 
-                {{ form_coment.botaoSubmitCriarComentario(class='bg-[#6C63FF] hover:bg-[#4941FF] duration-150 cursor-pointer w-[250px] rounded-lg p-[10px] text-white text-[18px]') }}
+                {{ form_coment.botaoSubmitCriarComentario(class='bg-[#6C63FF] font-semibold hover:bg-[#4941FF] duration-150 cursor-pointer rounded-full px-[45px]  py-[13px]   text-white text-center text-[18px]') }}
             </div>
         </form>
         
-        <img width="900px" src="https://cdn.discordapp.com/attachments/965066624556232737/1088959589170544740/undraw_Public_discussion_re_w9up.png" alt="">
+        
+        <figure class="w-[50%]">
+            <img class="w-full" src="{{ url_for('static', filename='Opinion-pana.svg') }}" alt="">
+        </figure>
         
     </section>
 </main>

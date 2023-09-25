@@ -2,19 +2,20 @@
 
 {% block body %}
 
-<main>
-    <section class="flex flex-row w-full h-screen justify-center items-center gap-[80px]">
-        <div>
-            <img  width="700px" src="../static/undraw_forgot_password_re_hxwm.svg" alt="">
+<main class="px-[10%]">
+    <section class="flex flex-row w-full h-screen justify-center items-center">
+        <div class="w-[50%]">
+            <img class="w-[80%]" src="../static/Forgot password-amico.svg" alt="">
         </div>
-        <form style="background-color: #b1adff2d ;" method="POST" action="" class="flex flex-col gap-[50px] p-[4rem] rounded-lg">
+
+        <form  method="POST" action="" class="flex flex-col w-[50%] gap-[50px] p-[4rem] rounded-lg">
             {{ form.csrf_token }}
-            <legend style="font-family: Quicksand; font-weight: 700;" class="text-[40px] text-center" >Recuperar Senha</legend>
+            <legend  class="text-[40px] font-bold" >Recuperar Senha</legend>
 
-            <fieldset class="flex flex-col gap-[30px] w-[300px]">
+            <fieldset class="flex flex-col gap-[30px]">
 
-                <div style="font-family: Quicksand; font-weight: 500;" class="flex flex-col gap-[10px]">
-                    {{ form.email.label(class='form-control-label') }}
+                <div  class="flex flex-col gap-[10px]">
+                    
                     {% if form.email.errors %}
                         {{ form.email(class='form-control is-invalid') }}
 
@@ -24,12 +25,12 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.email(class='px-[15px] h-[40px] w-[350px] border-[2px]  rounded-lg') }}
+                        {{ form.email(class='px-[15px] h-[40px] w-full  border-none bg-[#EAF0F7] rounded-lg', placeholder='Digite o seu Email') }}
                     {% endif %}
                 </div>
             </fieldset>
             <div class="flex items- justify-center">
-                {{ form.botaoSubmitEnviarEmail(class=' bg-[#6C63FF] w-[250px] rounded-full p-[10px] text-white text-[18px]') }}
+                {{ form.botaoSubmitEnviarEmail(class='bg-[#6C63FF] font-semibold hover:bg-[#4941FF] duration-150 cursor-pointer rounded-full px-[45px]  py-[13px]   text-white text-center text-[18px]') }}
 
             </div>
         </form>

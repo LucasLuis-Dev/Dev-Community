@@ -2,48 +2,34 @@
 
 {% block body %}
 
-<main>
+<main class="pl-[10%] pr-[10%]">
 
-    <section class="flex flex-col  w-full h-screen justify-center
-    max-[400px]:items-center ">
+    <section class="flex  w-full h-screen  ">
 
+        <div class="flex flex-row  w-full justify-between items-center max-[400px]:flex-col ">
 
-        <div class="flex flex-row flex-wrap gap-[6rem] justify-center items-center
-        max-[400px]:flex-col ">
-
-            <div>
-                <h1 style="font-family: Quicksand; font-weight: 700;"  class="text-[50px] font-bold 
+            <div class="flex flex-col w-[50%] gap-[25px]">
+                <h1  class="text-[50px] font-bold 
                 max-[400px]:text-[22px] max-[400px]:text-center ">
                     Olá Dev!
                     <br>
                     Bem vindo a sua Comunidade
                 </h1>
-
                 <div class="max-[400px]:mt-[35px] flex items-center" >
         
-                    <a class="bg-[#6C63FF] hover:bg-[#4941FF] duration-150 text-white py-[10px] px-[45px] rounded-full text-[20px]
-                    max-[400px]:p-[10px] max-[400px]:px-[40px]  " 
-                    href="{{ url_for('login') }}">Entrar</a>
+                    <a class="flex flex-row items-center gap-[20px] bg-[#6C63FF] hover:bg-[#4941FF] duration-150 text-white py-[10px] px-[45px] rounded-full text-[20px] font-bold max-[400px]:p-[10px] max-[400px]:px-[40px]  " 
+                    href="{{ url_for('login') }}">
+                    Acessar
+                    <svg class="w-[25px] fill-white	" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
+                </a>
                 </div>
-
             </div>
             
-
-           
-            <img src="../static/undraw_engineering_team_a7n2.svg" alt="">
-            
-            
-
+           <figure class="w-[70%]">
+                <img class="w-full" src="{{ url_for('static', filename='Telework-pana.svg') }}" alt="">
+           </figure>    
         </div>
-
-       
-            
-
     </section>
-
-    
-
-
 </main>
 
 {% endblock %}

@@ -3,17 +3,18 @@
 
 {% block body %}
 
-<main>
+<main class="pr-[10%] pl-[20%]">
     <section class="flex flex-row  w-full h-screen justify-center items-center">
-        <form style="background-color: #b1adff2d;"  method="POST" action="" class="flex shadow-lg flex-col gap-[50px] p-[4rem] rounded-lg" enctype="multipart/form-data">
+        
+        <form  method="POST" action="" class="flex flex-col w-[50%] gap-[40px] p-[2rem] rounded-lg" enctype="multipart/form-data">
             {{ form.csrf_token }}
 
-            <legend style="font-family: Quicksand; font-weight: 700;" class="text-[40px] text-center">Criar Post</legend>
+            <legend class="text-[40px] font-bold ">Faça uma Postagem</legend>
 
             <fieldset class="flex flex-col gap-[30px]">
 
-                <div style="font-family: Quicksand; font-weight: 500;" class="flex flex-col gap-[10px]">
-                    {{ form.corpo.label(class='form-control-label') }}
+                <div  class="flex flex-col gap-[10px]">
+                    
                     {% if form.corpo.errors %}
                         {{ form.corpo(class='form-control is-invalid') }}
 
@@ -23,14 +24,14 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.corpo(class='px-[15px] h-[40px] w-[450px] border-[2px] rounded-lg') }}
+                        {{ form.corpo(class='px-[15px] py-[10px] h-[150px] w-full border-none bg-[#EAF0F7] rounded-lg', placeholder='Escreva Aqui sua Postagem') }}
                     {% endif %}
                 </div>
                 
 
-                <div style="font-family: Quicksand; font-weight: 500;" class="flex flex-col gap-[10px]">
-                    {{ form.foto_post.label}}
-                    {{ form.foto_post(class='')}}
+                <div  class="flex flex-col gap-[10px]">
+                    {{ form.foto_post.label(class='text-[20px]')}}
+                    {{ form.foto_post(class='py-[13px]  text-[16px]')}}
                     {% if form.foto_post.errors %}
                         {% for error in form.foto_post.errors %}
                             <pan class="text-danger">{{ error }}</pan>
@@ -42,11 +43,14 @@
                 
             </fieldset>
             <div class="flex justify-center">
-                {{ form.botaoSubmitCriarPost(class='bg-[#6C63FF] hover:bg-[#4941FF] duration-150 cursor-pointer w-[150px] rounded-lg p-[10px] text-white text-[18px]') }}
+                {{ form.botaoSubmitCriarPost(class='bg-[#6C63FF] font-semibold hover:bg-[#4941FF] duration-150 cursor-pointer rounded-full px-[45px]  py-[13px]   text-white text-center text-[18px]') }}
 
             </div>
         </form>
-        <img width="45%" src="https://cdn.discordapp.com/attachments/965066624556232737/1088908381521203210/undraw_Post_re_mtr4.png" alt="">
+
+        <figure class="w-[50%]">
+            <img class="w-full" src="{{ url_for('static', filename='Design inspiration-amico.svg') }}" alt="">
+        </figure>
 
     </section>
 </main>

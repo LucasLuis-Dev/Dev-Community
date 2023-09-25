@@ -3,48 +3,38 @@
 
 
 {% block body %}
-{% if quantUsuarios > 2 %}
-<main class="w-full">
-{% else %}
-<main class="w-full h-screen">
-{% endif %}
-    <section class="flex flex-col mt-[130px]  gap-[40px]   w-full justify-start items-center">
-        <h1 style="font-family: Quicksand; font-weight: 700;" class="text-[32px]" >Usuários da Plataforma</h1>
 
-        <div class="flex flex-row flex-wrap justify-center items-center  w-[90%] ">
+<main class="w-full pt-[2%] pb-[17%] pr-[10%] pl-[20%]">
+
+    <section class="flex flex-col  gap-[40px]   w-full justify-start items-center">
+
+        <h1 class="text-[32px] font-bold" >Usuários da Plataforma</h1>
+
+        <div class="grid grid-cols-4 justify-center items-center w-full ">
             {% for usuario in usuarios %}
-            <div class="flex flex-row flex-wrap w-[50%] justify-center items-center mb-[30px]">
+            <div class="flex flex-row flex-wrap w-[350px]  justify-center items-center">
 
-                <div style="font-family: Quicksand; font-weight: 500;" class="flex flex-row bg-[#6C63FF]  rounded-lg w-[80%] justify-start pt-[10rem]">
+                <div class="flex flex-row bg-[#6C63FF] rounded-lg w-[80%] justify-start pt-[7rem]">
 
-                    <div style="background-color: #f8f8f8;" class="w-full shadow-lg px-[50px] pb-[20px] z-10">
-                        <div class="flex flex-row justify-between" >
-                            <img class="rounded-full w-[150px] mb-[10px] border-[8px] border-white mt-[-60px]" src="{{ url_for('static', filename='fotos_perfil/{}'.format(usuario.fotoPerfil)) }}"  width="205" >
-
+                    <div class="flex flex-col w-full bg-[#f8f8f8] shadow-lg px-[30px] pb-[20px] z-10">
+                        <div class="flex justify-center" >
+                            <img class="rounded-full w-[160px] mb-[10px] border-[8px] border-white mt-[-60px]" src="{{ url_for('static', filename='fotos_perfil/{}'.format(usuario.fotoPerfil)) }}"  width="205" >
                         </div>
                         
                         <div class="flex flex-col">
                             
                             <div class="flex flex-col mb-[15px]">
                                 <h4 class="capitalize text-[26px] font-bold" >{{ usuario.username }}</h4>
-                                <h5 class="text-[20px]" >{{ usuario.email }}</h5>
+                                <h5 class="text-[18px]" >{{ usuario.email }}</h5>
                                 
                             </div>
-                            <div class="flex flex-row gap-[60px]">
+                            <div class="flex flex-col gap-[30px]">
+                                
                                 <div class=" w-[100%]">
-                                    <h2 style="font-weight: 700;" class="mb-[10px] text-[26px]" >Tecnologias</h2>
-                                    <div class="flex flex-row flex-wrap gap-[20px]">
-                                        {% for stack in usuario.stacks.split(';') %}
-                                            <h5 class="text-[20px]">{{ stack }}</h5>
-                                        {% endfor %}
-                                    </div>
-                                    
-                                </div>
-                                <div class=" w-[100%]">
-                                    <h2 style="font-weight: 700;" class="mb-[10px] text-[26px]" >Áreas de Atuação</h2>
+                                    <h2 class="text-[19px] font-bold" >Áreas de Atuação</h2>
                                     <div class="flex flex-row flex-wrap gap-[20px]">
                                         {% for area in usuario.areas.split(';') %}
-                                            <h5 class="text-[20px]">{{ area }}</h5>
+                                            <h5 class="text-[17px]">{{ area }}</h5>
                                         {% endfor %}
                                     </div>
                                     
@@ -65,7 +55,8 @@
             {% endfor %}
 
         </div>
-               
+
+        
     </section>
 </main>
                 

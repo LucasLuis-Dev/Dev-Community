@@ -2,15 +2,15 @@
 
 {% block body %}
 
-<main class="pl-[10%] pr-[10%]">
-    <section class="flex flex-row   w-full h-screen justify-between items-center
-    max-[400px]:px-[15px] max-[400px]:flex-col max-[400px]:gap-[0px] max-[400px]:mt-[170px]">
+<main class="px-[10%]">
+    <section class="flex flex-row  w-full h-screen justify-between items-center
+    max-[480px]:items-center max-[480px]:flex-col max-[480px]:gap-[0px] max-[480px]:justify-center">
 
         <form  method="POST" action="" class="flex flex-col w-[45%] gap-[45px] p-[4rem] rounded-lg
-        max-[400px]:w-full max-[400px]:p-[2rem]">
+        max-[480px]:w-full max-[480px]:p-[0rem] max-[480px]:gap-[35px]">
 
             {{ formLogin.csrf_token }}
-            <legend  class="text-[40px] font-bold max-[400px]:text-[29px] ">Login</legend>
+            <legend  class="text-[40px] font-bold max-[480px]:text-[35px] ">Login</legend>
 
             <fieldset class="flex flex-col gap-[30px]">
                 <div class="flex flex-col gap-[10px]">
@@ -24,7 +24,7 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ formLogin.email(class='px-[15px] h-[40px] w-full border-none bg-[#EAF0F7] rounded-lg max-[400px]:w-full ', placeholder='Digite seu e-mail aqui') }}
+                        {{ formLogin.email(class='px-[15px] h-[40px] w-full border-none bg-[#EAF0F7] rounded-lg max-[480px]:w-full ', placeholder='Digite seu e-mail aqui') }}
                     {% endif %}
 
                     
@@ -39,24 +39,24 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ formLogin.senha(class='px-[15px] h-[40px] w-full border-none bg-[#EAF0F7] rounded-lg max-[400px]:w-full', placeholder='Digite sua senha aqui') }}
+                        {{ formLogin.senha(class='px-[15px] h-[40px] w-full border-none bg-[#EAF0F7] rounded-lg max-[480px]:w-full', placeholder='Digite sua senha aqui') }}
                     {% endif %}
                 </div>
                 
 
                 <div class="flex flex-row gap-[20px] text-[#6C63FF] justify-between 
                 max-[400px]:w-full">
-                    <a class="hover:text-[#4941FF] max-[400px]:text-[15px]" href="{{ url_for('recuperarSenha') }}">Esqueceu a Senha?</a>
-                    <a class="hover:text-[#4941FF] max-[400px]:text-[15px]" href="{{ url_for('criarConta') }}">Ainda não possui conta?</a> 
+                    <a class="hover:text-[#4941FF] max-[480px]:text-[13px]" href="{{ url_for('recuperarSenha') }}">Esqueceu a Senha?</a>
+                    <a class="hover:text-[#4941FF] max-[480px]:text-[13px]" href="{{ url_for('criarConta') }}">Ainda não possui conta?</a> 
                 </div>
                 
             </fieldset>
             <div class="flex items-center justify-center">
-                {{ formLogin.botaoSubmitLogin(class='bg-[#6C63FF] font-semibold hover:bg-[#4941FF] duration-150 cursor-pointer rounded-full px-[45px]  py-[13px]   text-white text-center text-[18px]') }}
+                {{ formLogin.botaoSubmitLogin(class='bg-[#6C63FF] font-semibold hover:bg-[#4941FF] duration-150 cursor-pointer rounded-full px-[45px]  py-[13px]   text-white text-center text-[18px] max-[480px]:p-[13px] max-[480px]:px-[30px]') }}
             </div>
             
         </form>
-        <div  class="w-[50%]  max-[400px]:invisible text-center" >
+        <div  class="w-[50%]  max-[480px]:hidden text-center" >
             <img  class="w-[100%] max-[400px]:invisible" src="../static/Computer login-rafiki.svg" alt="">
         </div>
     </section>

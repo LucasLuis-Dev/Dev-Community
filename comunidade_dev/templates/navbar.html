@@ -2,9 +2,9 @@
 {% if current_user.is_authenticated %}
     <nav class=" flex flex-col w-[20%]  h-[87%] bg-transparent pl-[2%] py-[15px] z-30 fixed justify-start items-start gap-[30px] ">
 
-        <div class="mb-[50px]">
+        <div class="flex items-center mb-[50px]">
             <a  class="flex flex-row justify-center items-center "  href="{{ url_for('home') }}">
-                <img  class="w-[250px] rounded max-[400px]:w-[120px] " src="https://cdn.discordapp.com/attachments/965066624556232737/1088908709037621248/logo2.png" alt="">
+                <img  class="w-[220px] rounded max-[400px]:w-[120px] " src="{{ url_for('static', filename='Dev community(1).jpg') }}" alt="">
             </a>
         </div>
 
@@ -67,15 +67,15 @@
     </nav>
 
 {% else %}
-    <nav class="bg-white flex flex-row w-full h-[95px] z-30 fixed justify-between items-center pl-[10%] pr-[10%] px-[100px] max-[400px]:px-[15px] ">
+    <nav class="bg-white flex flex-row w-full h-[95px] z-30 fixed justify-between items-center px-[10%] ">
 
-        <div class="">
+        <div class="flex items-center">
             <a  class="flex flex-row justify-center items-center "  href="{{ url_for('home') }}">
-                <img  class="w-[250px] rounded max-[400px]:w-[120px] " src="https://cdn.discordapp.com/attachments/965066624556232737/1088908709037621248/logo2.png" alt="">
+                <img  class="w-[220px] rounded max-[480px]:w-[130px] " src="{{ url_for('static', filename='Dev community(1).jpg') }}" alt="">
             </a>
         </div>
 
     
-        <a class="bg-[#6C63FF] hover:bg-[#4941FF] duration-150 text-[20px] font-bold  text-white p-[10px] px-[35px] rounded-full" href="{{ url_for('login') }}">Entrar</a>
+        <a class="bg-[#6C63FF] hover:bg-[#4941FF] duration-150 text-[20px] font-bold  text-white p-[10px] px-[35px] rounded-full max-[480px]:text-[17px] max-[480px]:px-[30px]" href="{{ url_for('login') }}">Entrar</a>
     </nav>
 {% endif %}

@@ -4,60 +4,43 @@
 
 {% block body %}
 
-<main class="w-full pt-[2%] pb-[17%] pr-[10%] pl-[20%]">
+<main class="w-full pt-[2%] pb-[17%] pr-[10%] pl-[20%] max-[480px]:pt-[7%] max-[480px]:pr-[0%]">
 
-    <section class="flex flex-col  gap-[40px]   w-full justify-start items-center">
+    <section class="flex flex-col gap-[40px] w-full justify-start items-center max-[480px]:gap-[30px]">
 
-        <h1 class="text-[32px] font-bold" >Usuários da Plataforma</h1>
+        <h1 class="text-[32px] font-bold max-[480px]:text-[20px]" >Usuários da Plataforma</h1>
 
-        <div class="grid grid-cols-4 justify-center items-center w-full ">
+        <div class="grid grid-cols-4 justify-center items-center w-full max-[480px]:grid-cols-1 max-[480px]:gap-y-[20px]">
             {% for usuario in usuarios %}
-            <div class="flex flex-row flex-wrap w-[350px]  justify-center items-center">
+            <div class="flex flex-row flex-wrap w-[350px]  justify-center items-center max-[480px]:w-full">
 
-                <div class="flex flex-row bg-[#6C63FF] rounded-lg w-[80%] justify-start pt-[7rem]">
+                <div class="flex flex-row bg-[#6C63FF] rounded-lg w-[80%] justify-start pt-[7rem] max-[480px]:pt-[3rem]">
 
-                    <div class="flex flex-col w-full bg-[#f8f8f8] shadow-lg px-[30px] pb-[20px] z-10">
+                    <div class="flex flex-col w-full bg-[#f8f8f8] shadow-lg px-[30px] pb-[20px] z-10 max-[480px]:shadow-none max-[480px]:px-[10px]">
                         <div class="flex justify-center" >
-                            <img class="rounded-full w-[160px] mb-[10px] border-[8px] border-white mt-[-60px]" src="{{ url_for('static', filename='fotos_perfil/{}'.format(usuario.fotoPerfil)) }}"  width="205" >
+                            <img class="rounded-full w-[205px] mb-[10px] border-[8px] border-white mt-[-60px] max-[480px]:border-[4px] max-[480px]:mt-[-30px] max-[480px]:w-[100px]" src="{{ url_for('static', filename='fotos_perfil/{}'.format(usuario.fotoPerfil)) }}" >
                         </div>
                         
-                        <div class="flex flex-col">
+                        <div class="flex flex-col ">
                             
-                            <div class="flex flex-col mb-[15px]">
-                                <h4 class="capitalize text-[26px] font-bold" >{{ usuario.username }}</h4>
-                                <h5 class="text-[18px]" >{{ usuario.email }}</h5>
+                            <div class="flex flex-col mb-[15px] max-[480px]:text-center">
+                                <h4 class="capitalize text-[26px] font-bold max-[480px]:text-[17px]" >{{ usuario.username }}</h4>
+                                <h5 class="text-[18px] max-[480px]:text-[14px]" >{{ usuario.email }}</h5>
                                 
                             </div>
                             <div class="flex flex-col gap-[30px]">
                                 
-                                <div class=" w-[100%]">
-                                    <h2 class="text-[19px] font-bold" >Áreas de Atuação</h2>
-                                    <div class="flex flex-row flex-wrap gap-[20px]">
-                                        {% for area in usuario.areas.split(';') %}
-                                            <h5 class="text-[17px]">{{ area }}</h5>
-                                        {% endfor %}
-                                    </div>
-                                    
+                                <div class=" w-[100%] max-[480px]:text-center">
+                                    <h2 class="text-[19px] font-bold max-[480px]:text-[17px]" >Áreas de Atuação</h2>
+                                    <h5 class="text-[17px] max-[480px]:text-[14px] max-[480px]:text-center">{{ usuario.areas }}</h5>
                                 </div>
                             </div>
-                            
-                            
                         </div>
-            
-                        
-                          
-                    </div>
-                        
+                    </div>  
                 </div>
-                        
-            
             </div>
             {% endfor %}
-
         </div>
-
-        
     </section>
-</main>
-                
+</main> 
 {% endblock %}

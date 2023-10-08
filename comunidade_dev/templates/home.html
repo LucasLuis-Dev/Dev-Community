@@ -5,50 +5,41 @@
 {% block body %}
 <main>
     {% if postComFoto %}
-    <section class="flex flex-col gap-[40px] w-full  py-[2%]  justify-center items-center ">
+    <section class="flex flex-col gap-[40px] w-full py-[2%] justify-center items-center ">
     {% elif not postComFoto %}
     <section class="flex flex-col gap-[40px] w-full py-[40px] h-screen justify-center items-center ">
     {% endif %}
         {% if quantPosts > 0 %}
-            <div class="flex flex-col gap-[40px] w-[80%]   justify-center items-center">
+            <div class="flex flex-col gap-[40px] w-[80%] justify-center items-center max-[480px]:w-full max-[480px]:pl-[20%] max-[480px]:pt-[5%] max-[480px]:gap-[5px]">
                 {% for post in posts %}
-                <a  class="flex flex-col justify-center items-center w-[70%]" href="{{ url_for('exibirPost', post_id=post.id) }}">
+                <a  class="flex flex-col justify-center items-center w-[70%] max-[480px]:w-full " href="{{ url_for('exibirPost', post_id=post.id) }}">
                 
                     <div class="flex flex-col  w-[100%]  justify-center items-center mb-[30px]">
                                 
-                        <article class="flex border-b-2 border-[#AD42BB] pb-[50px] hover:scale-105 duration-150 flex-col  gap-[5px] w-[80%] ">
+                        <article class="flex border-b-2 border-[#AD42BB] pb-[50px] hover:scale-105 duration-150 flex-col  gap-[5px] w-[80%] max-[480px]:pb-[15px] ">
         
                             <div class="flex flex-row gap-[20px] mb-[15px] w-[100%] justify-between">
         
-                                <div class="flex flex-row  items-center gap-[20px]"> 
-                                    <img class="w-[70px] rounded-full" src="{{ url_for('static', filename='fotos_perfil/{}'.format(post.autor.fotoPerfil)) }}" >
+                                <div class="flex flex-row  items-center gap-[20px] max-[480px]:w-full max-[480px]:gap-[10px]"> 
+                                    <img class="w-[70px] rounded-full max-[480px]:w-[45px]" src="{{ url_for('static', filename='fotos_perfil/{}'.format(post.autor.fotoPerfil)) }}" >
                                     
-                                    <div class="flex flex-col mt-[20px]">
+                                    <div class="flex flex-col mt-[20px] max-[480px]:mt-[0px]">
                                         <div >
-                                            <h4 class="text-[23px] font-bold capitalize" >{{ post.autor.username }}</h4>
+                                            <h4 class="text-[23px] font-bold capitalize max-[480px]:text-[16px]" >{{ post.autor.username }}</h4>
                                             <div class="flex flex-row flex-wrap gap-[10px] w-[150%]">
                                                 {% for area in post.autor.areas.split(';') %}
-                                                    <h5>{{ area }}</h5>
+                                                    <h5 class="max-[480px]:text-[11px]">{{ area }}</h5>
                                                 {% endfor %}
             
                                             </div>
                                             
                                         </div>
-                                        <div >
-                                            
-                                            <div class="flex flex-row flex-wrap gap-[10px] w-[150%]">
-                                                {% for stack in post.autor.stacks.split(';') %}
-                                                    <h5 {{ stack }}</h5>
-                                                {% endfor %}
-            
-                                            </div>
-                                            
-                                        </div>
+                                      
                                     </div>
                                     
                                 </div>
         
-                                <div class="flex items-center text-center justify-center">
+                                <div class="flex items-center text-center justify-center max-[480px]:hidden"">
                                     <img width="200px" src="../static/logo_2_-removebg-preview.png" alt="">
                                 </div>
                             </div>
@@ -58,8 +49,8 @@
                                 {% if post.fotoPost: %}
                                     <img class="w-full text-center rounded-md" src="{{ url_for('static', filename='fotos_posts/{}'.format(post.fotoPost)) }}" >
                                 {% endif %}
-                                <p class="w-full  text-[23px] text-left" >{{ post.corpo }}</p>
-                                <h6 class="w-full ">{{ post.dataCriacao.strftime('%d/%m/%Y')  }}</h6>
+                                <p class="w-full  text-[23px] text-left max-[480px]:text-[14px]" >{{ post.corpo }}</p>
+                                <h6 class="w-full max-[480px]:text-[12px]">{{ post.dataCriacao.strftime('%d/%m/%Y')  }}</h6>
 
                             </div>
                             
@@ -73,9 +64,9 @@
             </div>
 
         {% else %}
-            <div class="flex flex-col gap-[20px] w-[80%] h-screen  justify-center items-center">
+            <div class="flex flex-col gap-[20px] w-[80%] h-screen  justify-center items-center" >
 
-                <h1  class="text-[40px] font-bold text-center">Parece que ainda possuimos postagens na plataforma, seja o primeiro e compartilhe uma ideia!</h1>
+                <h1 class="text-[40px] font-bold text-center" >Parece que ainda possuimos postagens na plataforma, seja o primeiro e compartilhe uma ideia!</h1>
 
                 <img src="https://cdn.discordapp.com/attachments/965066624556232737/1091547453548920842/undraw_Code_thinking_re_gka2.png" alt="">
 

@@ -4,14 +4,14 @@
 {% block body %}
 
 <main class="pr-[10%] pl-[20%]">
-    <section class="flex flex-row  w-full h-screen justify-center items-center">
+    <section class="flex flex-row  w-full h-screen justify-center items-center ">
         
-        <form  method="POST" action="" class="flex flex-col w-[50%] gap-[40px] p-[2rem] rounded-lg" enctype="multipart/form-data">
+        <form  method="POST" action="" class="flex flex-col w-[50%] gap-[40px] p-[2rem] rounded-lg max-[480px]:w-full max-[480px]:pr-[0rem] max-[480px]:gap-[25px] max-[480px]:mt-[-40px]" enctype="multipart/form-data">
             {{ form.csrf_token }}
 
-            <legend class="text-[40px] font-bold ">Faça uma Postagem</legend>
+            <legend class="text-[40px] font-bold max-[480px]:text-[35px] ">Faça uma Postagem</legend>
 
-            <fieldset class="flex flex-col gap-[30px]">
+            <fieldset class="flex flex-col gap-[30px] max-[480px]:w-full">
 
                 <div  class="flex flex-col gap-[10px]">
                     
@@ -24,14 +24,16 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.corpo(class='px-[15px] py-[10px] h-[150px] w-full border-none bg-[#EAF0F7] rounded-lg', placeholder='Escreva Aqui sua Postagem') }}
+                        {{ form.corpo(class='px-[15px] py-[10px] h-[150px] w-full border-none bg-[#EAF0F7] rounded-lg max-[480px]:h-[120px] max-[480px]:w-[100%]', placeholder='Escreva Aqui sua Postagem') }}
                     {% endif %}
                 </div>
                 
 
                 <div  class="flex flex-col gap-[10px]">
-                    {{ form.foto_post.label(class='text-[20px]')}}
-                    {{ form.foto_post(class='py-[13px]  text-[16px]')}}
+                    {{ form.foto_post.label(class='text-[20px] max-[480px]:text-[15px]')}}
+
+                    {{ form.foto_post(class='py-[13px] text-[16px] max-[480px]:text-[13px] max-[480px]:w-[100%]')}}
+
                     {% if form.foto_post.errors %}
                         {% for error in form.foto_post.errors %}
                             <pan class="text-danger">{{ error }}</pan>
@@ -43,12 +45,12 @@
                 
             </fieldset>
             <div class="flex justify-center">
-                {{ form.botaoSubmitCriarPost(class='bg-[#6C63FF] font-semibold hover:bg-[#4941FF] duration-150 cursor-pointer rounded-full px-[45px]  py-[13px]   text-white text-center text-[18px]') }}
+                {{ form.botaoSubmitCriarPost(class='bg-[#6C63FF] font-semibold hover:bg-[#4941FF] duration-150 cursor-pointer rounded-full px-[45px]  py-[13px]   text-white text-center text-[18px] max-[480px]:p-[13px] max-[480px]:px-[30px]') }}
 
             </div>
         </form>
 
-        <figure class="w-[50%]">
+        <figure class="w-[50%] max-[480px]:hidden">
             <img class="w-full" src="{{ url_for('static', filename='Design inspiration-amico.svg') }}" alt="">
         </figure>
 

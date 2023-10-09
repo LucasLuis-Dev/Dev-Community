@@ -3,13 +3,13 @@
 
 {% block body %}
 
-<main class="pr-[10%] pl-[20%]">
+<main class="pr-[10%] pl-[20%] max-[480px]:px-[10%]">
     <section class="flex flex-row  w-full h-screen justify-center items-center ">
         
-        <form  method="POST" action="" class="flex flex-col w-[50%] gap-[40px] p-[2rem] rounded-lg max-[480px]:w-full max-[480px]:pr-[0rem] max-[480px]:gap-[25px] max-[480px]:mt-[-40px]" enctype="multipart/form-data">
+        <form  method="POST" action="" class="flex flex-col w-[50%] gap-[40px] p-[2rem] rounded-lg max-[480px]:w-full max-[480px]:p-[0rem] max-[480px]:gap-[25px] max-[480px]:mt-[-40px]" enctype="multipart/form-data">
             {{ form.csrf_token }}
 
-            <legend class="text-[40px] font-bold max-[480px]:text-[35px] ">Faça uma Postagem</legend>
+            <legend class="text-[40px] font-bold max-[480px]:text-[27px] ">Faça uma Postagem</legend>
 
             <fieldset class="flex flex-col gap-[30px] max-[480px]:w-full">
 

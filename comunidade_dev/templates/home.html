@@ -12,11 +12,12 @@
         {% if quantPosts > 0 %}
             <div class="flex flex-col gap-[40px] w-[80%] justify-center items-center max-[480px]:w-full max-[480px]:pl-[0%] max-[480px]:pt-[6rem] max-[480px]:gap-[5px]">
                 {% for post in posts %}
-                <a  class="flex flex-col justify-center items-center w-[70%] max-[480px]:w-full " href="{{ url_for('exibirPost', post_id=post.id) }}">
+                
+                <a  class="flex flex-col justify-center items-center w-full px-[10%] max-[480px]:w-full max-[480px]:px-[10%]" href="{{ url_for('exibirPost', post_id=post.id) }}">
                 
                     <div class="flex flex-col  w-[100%]  justify-center items-center mb-[30px]">
                                 
-                        <article class="flex border-b-2 border-[#AD42BB] pb-[50px] hover:scale-105 duration-150 flex-col  gap-[5px] w-[80%] max-[480px]:pb-[15px] ">
+                        <article class="flex border-b-2 border-[#AD42BB] pb-[50px]  duration-150 flex-col  gap-[5px] w-[80%] max-[480px]:w-full  max-[480px]:pb-[15px] ">
         
                             <div class="flex flex-row gap-[20px] mb-[15px] w-[100%] justify-between">
         

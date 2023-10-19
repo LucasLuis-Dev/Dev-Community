@@ -1,6 +1,6 @@
 
 {% if current_user.is_authenticated %}
-    <nav class=" flex flex-col w-[20%]  h-[87%] bg-transparent pl-[2%] py-[15px] z-30 fixed justify-start items-start gap-[30px] max-[480px]:justify-start max-[480px]:items-start max-[480px]:px-[10%]  max-[480px]:h-screen max-[480px]:w-full max-[480px]:flex-row">
+    <nav class=" flex flex-col w-[20%]  h-[87%] bg-transparent pl-[2%] py-[15px] z-30 fixed justify-start items-start gap-[30px] max-[480px]:justify-start max-[480px]:items-start max-[480px]:px-[10%]  max-[480px]:h-fit max-[480px]:w-full max-[480px]:flex-row">
 
         <div class="flex items-center mb-[50px] max-[480px]:hidden">
             <a  class="flex flex-row justify-center items-center "  href="{{ url_for('home') }}">

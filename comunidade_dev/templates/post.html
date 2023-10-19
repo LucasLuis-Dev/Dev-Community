@@ -15,9 +15,66 @@
     <main class="flex flex-col w-full justify-center items-center mt-[70px]">
 
 {% endif %}
-    <section class="flex flex-col gap-[40px] w-full h-fit justify-center items-center mt-[60px] pr-[10%] pl-[20%]">
+    <section class="flex flex-col gap-[40px] w-full h-fit justify-center items-center mt-[60px] pr-[10%] pl-[20%] max-[480px]:px-[10%] max-[480px]:mt-[6rem]">
     
         <div class="flex flex-col w-full  justify-center items-center mb-[30px]">
+
+            <article class="flex border-b-2 border-[#AD42BB] h-fit pb-[50px] hover:scale-105 duration-150 flex-col  gap-[5px] w-[80%] max-[480px]:w-full max-[480px]:pb-[20px]">
+        
+                <div class="flex flex-row gap-[20px] mb-[15px] w-[100%] justify-between">
+
+                    <div class="flex flex-row  items-center gap-[20px]"> 
+                        <img class="w-[50px] rounded-full" src="{{ url_for('static', filename='fotos_perfil/{}'.format(post.autor.fotoPerfil)) }}" >
+                        
+                        <div class="flex flex-col mt-[20px] max-[480px]:mt-0">
+                            <div class="max-[480px]:flex max-[480px]:items-start max-[480px]:justify-start max-[480px]:flex-col">
+                                <h4 class="text-[18px] font-bold capitalize" >{{ post.autor.username }}</h4>
+                                <h5 class="text-[17px] max-[480px]:text-[16px] max-[480px]:text-center">{{ post.autor.areas }}</h5>
+                                
+                            </div>
+                            <div >
+                                
+                                <div class="flex flex-row flex-wrap gap-[10px] w-[150%]">
+                                    {% for stack in post.autor.stacks.split(';') %}
+                                        <h5 {{ stack }}</h5>
+                                    {% endfor %}
+
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="flex flex-row gap-[15px] justify-center items-center"> 
+                        {% if current_user == post.autor %}
+                            <a class="flex items-center justify-center hover:bg-[#6C63FF] hover:fill-white rounded-full w-[50px] h-[50px] max-[480px]:w-[40px] max-[480px]:h-[40px] max-[480px]:bg-[#6C63FF]" href="{{ url_for('editarPost', post_id=post.id) }}">
+                                <svg class="w-[50%] max-[480px]:w-[20px] " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/></svg>
+                            </a>
+                        
+                        {% else %}
+                            <img width="200px" src="https://cdn.discordapp.com/attachments/965066624556232737/1088937491974848584/logo_2_-removebg-preview.png" alt="">
+                        {% endif %}
+                        
+                    </div>
+    
+                </div>
+
+               
+                <div class="flex flex-col w-full justify-start gap-[20px] items-start">
+                
+                    {% if post.fotoPost: %}
+                        <img class="w-full text-center rounded-md" src="{{ url_for('static', filename='fotos_posts/{}'.format(post.fotoPost)) }}" >
+                    {% endif %}
+                    <p class="w-full  text-[19px] text-left max-[480px]:text-[15px]" >{{ post.corpo }}</p>
+                    <h6 class="w-full max-[480px]:text-[15px]">{{ post.dataCriacao.strftime('%d/%m/%Y')  }}</h6>
+
+                </div>
+                
+                <a href="{{ url_for('criarComentario', post_id=post.id) }}" class='bg-[#6C63FF] font-semibold hover:bg-[#4941FF] duration-150 cursor-pointer rounded-full px-[45px]  py-[13px] text-white text-center text-[18px] max-[480px]:mt-[2rem]'>
+                    Criar Comentário
+                </a>
+            </article>
                             
             <article class="flex flex-col  p-[32px] gap-[5px] rounded-lg  w-[70%]">
 
@@ -73,10 +130,12 @@
                     
                 </div>
                 
-                <a href="{{ url_for('criarComentario', post_id=post.id) }}" class='bg-[#6C63FF] font-semibold hover:bg-[#4941FF] duration-150 cursor-pointer rounded-full px-[45px]  py-[13px]   text-white text-center text-[18px]'>
-                    Criar Comentário
-                </a>
+                
             </article>
+
+            <a href="{{ url_for('criarComentario', post_id=post.id) }}" class='bg-[#6C63FF] font-semibold hover:bg-[#4941FF] duration-150 cursor-pointer rounded-full px-[45px]  py-[13px]   text-white text-center text-[18px]'>
+                Criar Comentário
+            </a>
             
         </div>
         

@@ -10,7 +10,7 @@
     <section class="flex flex-col gap-[40px] w-full py-[40px] h-screen justify-center items-center ">
     {% endif %}
         {% if quantPosts > 0 %}
-            <div class="flex flex-col gap-[40px] w-[80%] justify-center items-center max-[480px]:w-full max-[480px]:pl-[0%] max-[480px]:pt-[5%] max-[480px]:gap-[5px]">
+            <div class="flex flex-col gap-[40px] w-[80%] justify-center items-center max-[480px]:w-full max-[480px]:pl-[0%] max-[480px]:pt-[6rem] max-[480px]:gap-[5px]">
                 {% for post in posts %}
                 <a  class="flex flex-col justify-center items-center w-[70%] max-[480px]:w-full " href="{{ url_for('exibirPost', post_id=post.id) }}">
                 

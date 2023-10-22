@@ -2,12 +2,18 @@
 
 
 {% block body %}
-    <main class="w-full pr-[10%] pl-[20%] max-[480px]:px-[10%]">
-        <section class="flex h-screen w-full justify-center items-center">
-            <div style="background-color: #b1adff2d;"  class="flex flex-col  gap-[50px] p-[4rem] rounded-lg  text-center max-[480px]:items-center max-[480px]:p-[4rem] max-[480px]:mt-[-85px] max-[480px]:w-full">
-                <h1 class="font-bold text-[40px] max-[480px]:text-[15px]">Qualquer dúvida ou erro mande um e-mail para lucasluisouza@gmail.com 😉</h1>
+    <main class="w-full pr-[10%] pl-[20%] max-[480px]:px-[10%] ">
+        <section class="flex h-screen w-full justify-center items-center max-[480px]:flex-col-reverse max-[480px]:gap-[20px]">
+            <div   class="flex flex-col  gap-[50px] p-[4rem] rounded-lg  text-center max-[480px]:items-center max-[480px]:p-[0rem] max-[480px]:w-full">
+                <h1 class="font-bold text-[40px]  max-[480px]:text-[19px] max-[480px]:font-semibold max-[480px]:text-center">Qualquer dúvida ou erro mande um e-mail para lucasluisouza@gmail.com 😉</h1>
+            </div>
+
+            <div  class="w-[50%] max-[480px]:w-full  text-center" >
+                <img  class="w-[100%]" src="{{ url_for('static', filename='Call center-pana.svg') }}" alt="">
             </div>
         </section>
+
+        
     </main>
     
 {% endblock %}

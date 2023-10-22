@@ -65,13 +65,11 @@
             </div>
 
         {% else %}
-            <div class="flex flex-col gap-[20px] w-[80%] h-screen  justify-center items-center" >
+            <div class="flex flex-col gap-[20px] w-[80%] h-screen  justify-center items-center max-[480px]:w-full max-[480px]:flex-col-reverse max-[480px]:px-[10%]" >
 
-                <h1 class="text-[40px] font-bold text-center" >Parece que ainda possuimos postagens na plataforma, seja o primeiro e compartilhe uma ideia!</h1>
+                <h1 class="text-[40px] font-bold text-center max-[480px]:text-[19px] max-[480px]:font-semibold" >Parece que ainda não possuimos postagens na plataforma, seja o primeiro e compartilhe uma ideia!</h1>
 
-                <img src="https://cdn.discordapp.com/attachments/965066624556232737/1091547453548920842/undraw_Code_thinking_re_gka2.png" alt="">
-
-                
+                <img class="max-[480px]:w-full" src="{{ url_for('static', filename='Connected world-pana.svg') }}" alt="">
 
             </div>
 

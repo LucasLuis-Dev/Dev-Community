@@ -2,66 +2,65 @@
 
 
 {% block body %}
-<main class="flex flex-row w-full h-screen justify-center items-center pr-[10%] pl-[20%]">
-    <section class="flex flex-col w-[50%] justify-center items-center ">
+<main class="flex flex-row w-full h-screen justify-center items-center pr-[10%] pl-[20%] max-[480px]:px-[10%] max-[480px]:h-auto  max-[480px]:py-[25%] max-[480px]:flex-col max-[480px]:gap-[25px]">
+    <section class="flex flex-col w-[50%] justify-center items-center  max-[480px]:w-full">
         <div class="flex flex-col w-full  justify-center items-center ">
                             
-            <article class="flex flex-col  p-[32px] gap-[5px] rounded-lg  w-full">
+            <article class="flex border-b-2 border-[#AD42BB] pb-[50px]  duration-150 flex-col  gap-[5px] w-[80%] max-[480px]:w-full  max-[480px]:pb-[15px] ">
+        
+                <div class="flex flex-row gap-[20px] mb-[15px] w-[100%] justify-between">
 
-                <div class="flex flex-row mb-[15px] gap-[20px] w-[100%] justify-between">
+                    <div class="flex flex-row  items-center gap-[20px] max-[480px]:w-full max-[480px]:gap-[10px]"> 
+                        <img class="w-[70px] rounded-full max-[480px]:w-[45px]" src="{{ url_for('static', filename='fotos_perfil/{}'.format(post.autor.fotoPerfil)) }}" >
+                        
+                        <div class="flex flex-col mt-[20px] max-[480px]:mt-[0px]">
+                            <div >
+                                <h4 class="text-[23px] font-bold capitalize max-[480px]:text-[16px]" >{{ post.autor.username }}</h4>
+                                <div class="flex flex-row flex-wrap gap-[10px] w-[150%]">
+                                    {% for area in post.autor.areas.split(';') %}
+                                        <h5 class="max-[480px]:text-[11px]">{{ area }}</h5>
+                                    {% endfor %}
 
-                    <div class="flex flex-row  items-center gap-[20px]"> 
-                        <img class="w-[70px] rounded-full" src="{{ url_for('static', filename='fotos_perfil/{}'.format(post.autor.fotoPerfil)) }}" >
-                    
-                        <div >
-                            
-                            <div class="flex flex-col mt-[20px]">
-                                <div >
-                                    <h4 class="text-[23px] capitalize font-bold" >{{ post.autor.username }}</h4>
-                                    <div class="flex flex-row flex-wrap gap-[10px] w-[150%]">
-                                        {% for area in post.autor.areas.split(';') %}
-                                            <h5>{{ area }}</h5>
-                                        {% endfor %}
-    
-                                    </div>
-                                    
                                 </div>
                                 
                             </div>
-                            
+                          
                         </div>
+                        
                     </div>
 
+                    <div class="flex items-center text-center justify-center max-[480px]:hidden"">
+                        <img width="200px" src="../static/logo_2_-removebg-preview.png" alt="">
+                    </div>
                 </div>
 
-                <div class="flex flex-col w-[100%] justify-start items-start">
-                    <div class="text-black text-left">
-                        {% if post.fotoPost: %}
-                            <img class="w-[100%] text-center mb-[15px]" src="{{ url_for('static', filename='fotos_posts/{}'.format(post.fotoPost)) }}" >
-                        {% endif %}
-                        <p class="w-full mb-[10px]  text-[19px]" >{{ post.corpo }}</p>
-                        <h6 class="w-full mb-[10px] " >{{ post.dataCriacao.strftime('%d/%m/%Y')  }}</h6>
-                    </div>
-                    
+                <div class="flex flex-col w-full justify-start gap-[20px] items-start">
+                
+                    {% if post.fotoPost: %}
+                        <img class="w-full text-center rounded-md" src="{{ url_for('static', filename='fotos_posts/{}'.format(post.fotoPost)) }}" >
+                    {% endif %}
+                    <p class="w-full  text-[23px] text-left max-[480px]:text-[14px]" >{{ post.corpo }}</p>
+                    <h6 class="w-full max-[480px]:text-[12px]">{{ post.dataCriacao.strftime('%d/%m/%Y')  }}</h6>
+
                 </div>
-               
+                
             </article>
             
         </div>
         
     </section>
 
-    <section class="flex flex-col justify-center items-center w-[50%]">
-        <form method="POST" id="form_editar_post" action="" class="flex w-full flex-col gap-[50px] p-[4rem] rounded-lg" enctype="multipart/form-data">
+    <section class="flex flex-col justify-center items-center w-[50%] max-[480px]:w-full max-[480px]:gap-[20px]">
+        <form method="POST" id="form_editar_post" action="" class="flex w-full flex-col gap-[50px] p-[4rem] rounded-lg max-[480px]:p-[0px] max-[480px]:gap-[20px]" enctype="multipart/form-data">
             {{ form.csrf_token }}
 
-            <legend class="text-[40px] text-left font-bold">Editar Post</legend>
+            <legend class="text-[40px] text-left font-bold max-[480px]:text-[35px]">Editar Post</legend>
 
             <fieldset class="flex flex-col gap-[30px]">
 
                 <div class="flex flex-col gap-[10px]">
                     {{ form.foto_post.label}}
-                    {{ form.foto_post(class='form-control-file')}}
+                    {{ form.foto_post(class='max-[480px]:text-[13px] max-[480px]:w-[100%]')}}
                     {% if form.foto_post.errors %}
                         {% for error in form.foto_post.errors %}
                             <pan class="text-danger">{{ error }}</pan>
@@ -81,21 +80,21 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.corpo(class='p-[15px] h-[150px] w-full border-none bg-[#EAF0F7] rounded-lg max-[400px]:w-full',placeholder="Escreva aqui") }}
+                        {{ form.corpo(class='p-[15px] h-[150px] w-full border-none bg-[#EAF0F7] rounded-lg max-[480px]:h-[120px] max-[480px]:w-full',placeholder="Escreva aqui") }}
                     {% endif %}
                 </div>
             </fieldset>
             <div class="flex justify-center">
-                {{ form.botaoSubmitCriarPost(class='bg-[#6C63FF] font-semibold hover:bg-[#4941FF] duration-150 cursor-pointer rounded-full px-[45px]  py-[13px]   text-white text-center text-[18px]') }}
+                {{ form.botaoSubmitCriarPost(class='bg-[#6C63FF] font-semibold hover:bg-[#4941FF] duration-150 cursor-pointer rounded-full px-[45px]  py-[13px]   text-white text-center text-[18px] max-[480px]:p-[13px] max-[480px]:px-[30px]') }}
 
             </div>
         </form>
             
-        <div class="flex flex-row mt-[-40px] items-center justify-center "> 
+        <div class="flex flex-row mt-[-40px] items-center justify-center max-[480px]:mt-[0px]"> 
             {% if current_user == post.autor %}
             
                 <form method="POST" action="{{url_for('excluirPost', post_id = post.id)}}">
-                    <button type="submit" class="bg-[#FB3437] font-semibold hover:bg-[#FF0004] duration-150 cursor-pointer rounded-full px-[45px]  py-[13px]   text-white text-center text-[18px]">
+                    <button type="submit" class="bg-[#FB3437] font-semibold hover:bg-[#FF0004] duration-150 cursor-pointer rounded-full px-[45px]  py-[13px]   text-white text-center text-[18px] max-[480px]:p-[13px] max-[480px]:px-[30px]">
                         Excluir Postagem
                     </button>
                 </form>

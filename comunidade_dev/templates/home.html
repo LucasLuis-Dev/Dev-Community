@@ -26,10 +26,10 @@
                                     
                                     <div class="flex flex-col mt-[20px] max-[480px]:mt-[0px]">
                                         <div >
-                                            <h4 class="text-[23px] font-bold capitalize max-[480px]:text-[16px]" >{{ post.autor.username }}</h4>
+                                            <h4 class="text-[23px] font-bold capitalize max-[480px]:text-[18px]" >{{ post.autor.username }}</h4>
                                             <div class="flex flex-row flex-wrap gap-[10px] w-[150%]">
                                                 {% for area in post.autor.areas.split(';') %}
-                                                    <h5 class="max-[480px]:text-[11px]">{{ area }}</h5>
+                                                    <h5 class="max-[480px]:text-[13px]">{{ area }}</h5>
                                                 {% endfor %}
             
                                             </div>
@@ -40,8 +40,8 @@
                                     
                                 </div>
         
-                                <div class="flex items-center text-center justify-center max-[480px]:hidden"">
-                                    <img width="200px" src="../static/logo_2_-removebg-preview.png" alt="">
+                                <div class="flex items-center text-center justify-center">
+                                    <img class="w-[200px] max-[480px]:w-[150px]"  src="../static/logo_2_-removebg-preview.png" alt="">
                                 </div>
                             </div>
         
@@ -50,8 +50,8 @@
                                 {% if post.fotoPost: %}
                                     <img class="w-full text-center rounded-md" src="{{ url_for('static', filename='fotos_posts/{}'.format(post.fotoPost)) }}" >
                                 {% endif %}
-                                <p class="w-full  text-[23px] text-left max-[480px]:text-[14px]" >{{ post.corpo }}</p>
-                                <h6 class="w-full max-[480px]:text-[12px]">{{ post.dataCriacao.strftime('%d/%m/%Y')  }}</h6>
+                                <p class="w-full  text-[23px] text-left max-[480px]:text-[16px]" >{{ post.corpo }}</p>
+                                <h6 class="w-full max-[480px]:text-[13px]">{{ post.dataCriacao.strftime('%d/%m/%Y')  }}</h6>
 
                             </div>
                             

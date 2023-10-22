@@ -3,8 +3,8 @@
 
 {% block body %}
 
-<main class="pr-[10%] pl-[20%] max-[480px]:px-[10%]">
-    <section class="flex flex-row  w-full h-screen justify-center items-center ">
+<main class="pr-[10%] pl-[20%] max-[480px]:px-[10%] max-[480px]:h-auto  max-[480px]:py-[20%]">
+    <section class="flex flex-row  w-full h-screen justify-center items-center max-[480px]:h-auto max-[480px]:flex-col-reverse ">
         
         <form  method="POST" action="" class="flex flex-col w-[50%] gap-[40px] p-[2rem] rounded-lg max-[480px]:w-full max-[480px]:p-[0rem] max-[480px]:gap-[25px] max-[480px]:mt-[-40px]" enctype="multipart/form-data">
             {{ form.csrf_token }}
@@ -50,7 +50,7 @@
             </div>
         </form>
 
-        <figure class="w-[50%] max-[480px]:hidden">
+        <figure class="w-[50%] max-[480px]:w-full">
             <img class="w-full" src="{{ url_for('static', filename='Design inspiration-amico.svg') }}" alt="">
         </figure>
 

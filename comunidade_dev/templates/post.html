@@ -3,13 +3,13 @@
 
 {% block body %}
 
-<main class="flex flex-col w-full min-h-screen  justify-center items-center">
+<main class="flex flex-col w-full min-h-screen  justify-center items-center max-[480px]:h-auto  max-[480px]:py-[25%]">
 
     <section class="flex flex-col gap-[40px] w-full h-fit justify-center items-center mt-[60px] pr-[10%] pl-[20%] max-[480px]:px-[10%] max-[480px]:mt-[3rem]">
     
         <div class="flex flex-col w-full  justify-center items-center mb-[30px]">
 
-            <article class="flex border-b-2 border-[#AD42BB] h-fit pb-[50px] hover:scale-105 duration-150 flex-col  gap-[5px] w-[80%] max-[480px]:w-full max-[480px]:pb-[20px]">
+            <article class="flex border-b-2 border-[#AD42BB] h-fit pb-[50px] hover:scale-105 duration-150 flex-col  gap-[5px] w-[80%] max-[480px]:w-full max-[480px]:pb-[20px] max-[480px]:hover:scale-100">
         
                 <div class="flex flex-row gap-[20px] mb-[15px] w-[100%] justify-between">
 
@@ -70,7 +70,7 @@
         
     </section>
 
-    <section class="flex flex-col gap-[40px] w-full justify-start items-center pr-[10%] pl-[20%]  max-[480px]:px-[10%]">
+    <section class="flex flex-col gap-[40px] w-full justify-start items-center pr-[10%] pl-[20%]  max-[480px]:px-[10%] max-[480px]:gap-[5px]">
 
         {% if comentarios %}
                 {% for comentario in comentarios %}

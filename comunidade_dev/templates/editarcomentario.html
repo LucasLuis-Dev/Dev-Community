@@ -2,18 +2,18 @@
 
 {% block body %}
 
-<main class="flex flex-row w-full gap-[50px] h-screen justify-center items-center pr-[10%] pl-[20%]">
+<main class="flex flex-row w-full gap-[50px] h-screen justify-center items-center pr-[10%] pl-[20%]  max-[480px]:px-[10%] max-[480px]:h-fit">
 
-    <section class="flex flex-row w-full justify-center items-center">
-        <figure class="w-[50%]">
+    <section class="flex flex-row w-full justify-center items-center max-[480px]:flex-col max-[480px]:py-[25%]">
+        <figure class="w-[50%]  max-[480px]:w-full">
             <img class="w-full" src="{{ url_for('static', filename='Opinion-pana.svg') }}" alt="">
         </figure>
         
-        <div class="flex flex-col w-[50%]">
-            <form  method="POST" action="" class="flex flex-col w-full  gap-[30px] p-[4rem]  rounded-lg" enctype="multipart/form-data">
+        <div class="flex flex-col w-[50%] max-[480px]:w-full max-[480px]:gap-[50px]">
+            <form  method="POST" action="" class="flex flex-col w-full  gap-[30px] p-[4rem] rounded-lg max-[480px]:p-[0px] max-[480px]:gap-[20px]" enctype="multipart/form-data">
                 {{ form_coment.csrf_token }}
                 
-                <legend  class="text-[40px] text-left font-bold">Editar Comentario</legend>
+                <legend  class="text-[40px] text-left font-bold  max-[480px]:text-[35px]">Editar Comentario</legend>
     
                 <fieldset class="flex flex-col gap-[20px]">
                     <div  class="flex flex-col gap-[10px]">
@@ -27,20 +27,20 @@
                                 {% endfor %}
                             </div>
                         {% else %}
-                            {{ form_coment.corpo(class='p-[15px] h-[150px] w-full border-none bg-[#EAF0F7] rounded-lg max-[400px]:w-full',placeholder="Escreva seu comentário aqui") }}
+                            {{ form_coment.corpo(class='p-[15px] h-[150px] w-full border-none bg-[#EAF0F7] rounded-lg  max-[480px]:h-[120px] max-[480px]:w-full',placeholder="Escreva seu comentário aqui") }}
                         {% endif %}
                     </div>
                 </fieldset>
                 <div class="flex justify-center gap-[30px]">
                     
-                    {{ form_coment.botaoSubmitCriarComentario(class='bg-[#6C63FF] font-semibold hover:bg-[#4941FF] duration-150 cursor-pointer rounded-full px-[45px]  py-[13px]   text-white text-center text-[18px]') }}
+                    {{ form_coment.botaoSubmitCriarComentario(class='bg-[#6C63FF] font-semibold hover:bg-[#4941FF] duration-150 cursor-pointer rounded-full px-[45px]  py-[13px] text-white text-center text-[18px] max-[480px]:p-[13px] max-[480px]:px-[30px]') }}
                     
                 </div>
             </form>
             {% if current_user == comentario.autor %}
                 <form method="POST" action="{{url_for('excluirComentario', post_id=post_id, comentario_id = comentario.id)}}">
                     <div class="flex flex-row mt-[-40px] items-center justify-center ">
-                        <button  class="bg-[#FB3437] font-semibold hover:bg-[#FF0004] duration-150 cursor-pointer rounded-full px-[45px]  py-[13px]   text-white text-center text-[18px]" type="submit" >
+                        <button  class="bg-[#FB3437] font-semibold hover:bg-[#FF0004] duration-150 cursor-pointer rounded-full px-[45px]  py-[13px]   text-white text-center text-[18px] max-[480px]:p-[13px] max-[480px]:px-[30px]" type="submit" >
                             Excluir Comentario
                         </button>
                     </div>

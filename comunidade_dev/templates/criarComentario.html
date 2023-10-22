@@ -3,11 +3,11 @@
 {% block body %}
 
 <main>
-    <section class="flex flex-row  w-full h-screen justify-center gap-[50px] items-center pl-[20%] pr-[10%]">
-        <form  method="POST" action="" class="flex flex-col w-[50%] gap-[40px] p-[4rem]  rounded-lg" enctype="multipart/form-data">
+    <section class="flex flex-row  w-full h-screen justify-center gap-[50px] items-center pl-[20%] pr-[10%] max-[480px]:flex-col-reverse  max-[480px]:px-[10%] max-[480px]:gap-[0px]">
+        <form  method="POST" action="" class="flex flex-col w-[50%] gap-[40px] p-[4rem]  rounded-lg max-[480px]:p-[0px] max-[480px]:gap-[20px] max-[480px]:w-full" enctype="multipart/form-data">
             {{ form_coment.csrf_token }}
 
-            <legend class="text-[40px] font-bold text-left">Criar Comentario</legend>
+            <legend class="text-[40px] font-bold text-left max-[480px]:text-[35px]">Criar Comentario</legend>
 
             <fieldset class="flex flex-col gap-[30px]">
                 <div  class="flex flex-col gap-[10px]">
@@ -21,18 +21,18 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form_coment.corpo(class='p-[15px] h-[150px] w-full border-none bg-[#EAF0F7] rounded-lg max-[400px]:w-full',placeholder="Escreva seu comentário aqui") }}
+                        {{ form_coment.corpo(class='p-[15px] h-[150px] w-full border-none bg-[#EAF0F7] rounded-lg max-[480px]:h-[120px] max-[480px]:w-full',placeholder="Escreva seu comentário aqui") }}
                     {% endif %}
                 </div>
             </fieldset>
             <div class="flex justify-center gap-[30px]">
                 
-                {{ form_coment.botaoSubmitCriarComentario(class='bg-[#6C63FF] font-semibold hover:bg-[#4941FF] duration-150 cursor-pointer rounded-full px-[45px]  py-[13px]   text-white text-center text-[18px]') }}
+                {{ form_coment.botaoSubmitCriarComentario(class='bg-[#6C63FF] font-semibold hover:bg-[#4941FF] duration-150 cursor-pointer rounded-full px-[45px]  py-[13px] text-white text-center text-[18px] max-[480px]:p-[13px] max-[480px]:px-[30px]') }}
             </div>
         </form>
         
         
-        <figure class="w-[50%]">
+        <figure class="w-[50%] max-[480px]:w-full">
             <img class="w-full" src="{{ url_for('static', filename='Opinion-pana.svg') }}" alt="">
         </figure>
         

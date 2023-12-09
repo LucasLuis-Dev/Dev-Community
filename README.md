@@ -1,5 +1,7 @@
 # 💻 Dev community
 
+## RECENBENDO ATUALIZAÇÕES COM UM NOVO DESIGN!
+
 <img src='https://cdn.discordapp.com/attachments/965066624556232737/1089007624953008169/Captura_de_tela_de_2023-03-24_23-07-09.png' >
 
 ## 📄 Descrição

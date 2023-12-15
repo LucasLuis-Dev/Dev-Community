@@ -2,34 +2,34 @@
 
 {% block body %}
 
-<main class="pl-[10%] pr-[10%]">
 
-    <section class="flex  w-full h-screen  max-[480px]:text-center ">
+<header class="capa__container"> 
 
-        <div class="flex flex-row  w-full justify-between items-center max-[480px]:flex-col-reverse max-[480px]:justify-center">
+    <div class="capa-informations__container">
 
-            <div class="flex flex-col w-[50%] gap-[25px] max-[480px]:w-full max-[480px]:gap-[20px] max-[480px]:items-center ">
-                <h1  class="text-[50px] font-bold 
-                max-[480px]:text-[27px] max-[480px]:text-center ">
-                    Olá Dev!
-                    <br>
-                    Bem vindo a sua Comunidade
-                </h1>
-                <div class="flex items-center" >
-        
-                    <a class="flex flex-row items-center gap-[20px] bg-[#6C63FF] hover:bg-[#4941FF] duration-150 text-white py-[10px] px-[45px] rounded-full text-[20px] font-bold max-[480px]:p-[13px] max-[480px]:px-[30px]  " 
-                        href="{{ url_for('login') }}">
-                        Acessar
-                        <svg class="w-[25px] fill-white	" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
-                    </a>
-                </div>
-            </div>
+        <div class="capa-title__container">
+            <h1  class="capa-title">
+                Olá Dev!
+                <br>
+                Bem vindo a sua Comunidade
+            </h1>
+           
+    
+                <a class="btn btn-blue" 
+                    href="{{ url_for('login') }}">
+                    Acessar
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M352 96l64 0c17.7 0 32 14.3 32 32l0 256c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0c53 0 96-43 96-96l0-256c0-53-43-96-96-96l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32zm-9.4 182.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L242.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/></svg>
+                </a>
             
-           <figure class="w-[70%] max-[480px]:w-full">
-                <img class="w-full" src="{{ url_for('static', filename='Telework-pana.svg') }}" alt="">
-           </figure>    
         </div>
-    </section>
-</main>
+        
+       <figure class="capa-image__container">
+            <img src="{{ url_for('static', filename='capa.gif') }}" alt="">
+       </figure>  
+
+    </div>
+
+</header>
+
 
 {% endblock %}

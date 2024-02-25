@@ -1,5 +1,12 @@
 body {
     font-family: Poppins;
+    background-color: #121620;
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1600px) {
+    body {
+        zoom: 80%;
+    }
 }
 
 * {
@@ -10,6 +17,7 @@ body {
 
 :root {
     font-size: 62.5%;
+    --highlight-color: #59CAE8;
 }
 
 .btn {

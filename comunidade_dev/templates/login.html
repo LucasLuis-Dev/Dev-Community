@@ -2,18 +2,16 @@
 
 {% block body %}
 
-<main class="px-[10%]">
-    <section class="flex flex-row  w-full h-screen justify-between items-center
-    max-[480px]:items-center max-[480px]:flex-col max-[480px]:gap-[0px] max-[480px]:justify-center">
+<main class="">
+    <section class="">
 
-        <form  method="POST" action="" class="flex flex-col w-[45%] gap-[45px] p-[4rem] rounded-lg
-        max-[480px]:w-full max-[480px]:p-[0rem] max-[480px]:gap-[35px]">
+        <form  method="POST" action="" class="">
 
             {{ formLogin.csrf_token }}
-            <legend  class="text-[40px] font-bold max-[480px]:text-[35px] ">Login</legend>
+            <legend  class="">Login</legend>
 
-            <fieldset class="flex flex-col gap-[30px] max-[480px]:gap-[20px]">
-                <div class="flex flex-col gap-[10px]">
+            <fieldset class="">
+                <div class="">
 
                     {% if formLogin.email.errors %}
                         {{ formLogin.email(class='form-control is-invalid') }}
@@ -24,12 +22,12 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ formLogin.email(class='px-[15px] h-[40px] w-full border-none bg-[#EAF0F7] rounded-lg max-[480px]:w-full ', placeholder='Digite seu e-mail aqui') }}
+                        {{ formLogin.email(class=' ', placeholder='Digite seu e-mail aqui') }}
                     {% endif %}
 
                     
                 </div>
-                <div class="flex flex-col gap-[10px]">                        
+                <div class="">                        
                     {% if formLogin.senha.errors %}
                         {{ formLogin.senha(class='form-control is-invalid') }}
 
@@ -39,25 +37,24 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ formLogin.senha(class='px-[15px] h-[40px] w-full border-none bg-[#EAF0F7] rounded-lg max-[480px]:w-full', placeholder='Digite sua senha aqui') }}
+                        {{ formLogin.senha(class='', placeholder='Digite sua senha aqui') }}
                     {% endif %}
                 </div>
                 
 
-                <div class="flex flex-row gap-[20px] text-[#6C63FF] justify-between 
-                max-[400px]:w-full">
-                    <a class="hover:text-[#4941FF] max-[480px]:text-[13px]" href="{{ url_for('recuperarSenha') }}">Esqueceu a Senha?</a>
-                    <a class="hover:text-[#4941FF] max-[480px]:text-[13px]" href="{{ url_for('criarConta') }}">Ainda não possui conta?</a> 
+                <div class="">
+                    <a class="" href="{{ url_for('recuperarSenha') }}">Esqueceu a Senha?</a>
+                    <a class="" href="{{ url_for('criarConta') }}">Ainda não possui conta?</a> 
                 </div>
                 
             </fieldset>
-            <div class="flex items-center justify-center">
-                {{ formLogin.botaoSubmitLogin(class='bg-[#6C63FF] font-semibold hover:bg-[#4941FF] duration-150 cursor-pointer rounded-full px-[45px]  py-[13px]   text-white text-center text-[18px] max-[480px]:p-[13px] max-[480px]:px-[30px]') }}
+            <div class="">
+                {{ formLogin.botaoSubmitLogin(class='') }}
             </div>
             
         </form>
-        <div  class="w-[50%] max-[480px]:hidden  text-center" >
-            <img  class="w-[100%]" src="../static/Computer login-rafiki.svg" alt="">
+        <div  class="" >
+            <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="">
         </div>
     </section>
 </main>

@@ -16,14 +16,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/global.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/capa.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/login.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/footer.css') }}">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
     
 </head> 
 <body >
-    
-    {% include "navbar.html" %}
     
     <div class="flex justify-center items-center">
         {% with mensagens = get_flashed_messages(with_categories=True) %}
@@ -51,21 +51,21 @@
 
         <div class="footer-contacts__container">
             <figure>
-                <img  class="footer-logo" src="{{ url_for('static', filename='Dev community(1)(1).jpg') }}" alt=""> 
+                <img  class="footer-logo" src="{{ url_for('static', filename='assets/logo.png') }}" alt=""> 
             </figure>
 
             <ul class="footer-contacts-links__container">
                 <li>
-                    <img class="contact-link-img" src="{{ url_for('static', filename='instagram.png') }}" alt="">
+                    <img class="contact-link-img" src="{{ url_for('static', filename='assets/instagram.png') }}" alt="">
                 </li>
                 <li>
-                    <img class="contact-link-img" src="{{ url_for('static', filename='linkedin.png') }}" alt="">
+                    <img class="contact-link-img" src="{{ url_for('static', filename='assets/linkedin.png') }}" alt="">
                 </li>
                 <li>
-                    <img class="contact-link-img" src="{{ url_for('static', filename='gmail.png') }}" alt="">
+                    <img class="contact-link-img" src="{{ url_for('static', filename='assets/gmail.png') }}" alt="">
                 </li>
                 <li>
-                    <img class="contact-link-img" src="{{ url_for('static', filename='twitter.png') }}" alt="">
+                    <img class="contact-link-img" src="{{ url_for('static', filename='assets/twitter.png') }}" alt="">
                 </li>
             </ul>
         </div>

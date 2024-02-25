@@ -1,27 +1,21 @@
 /*======= VERSÃO PARA DESKTOP ================*/
 
 
-nav {
+.navbar__container {
     display: flex;
     flex-direction: row;
-
     align-items: center;
     justify-content: space-between;
-
-    padding: 20px 80px;
-
-    position: fixed;
-
-    width: 90vw;
-
-    background-color: beige;
+    padding: 2rem 10%;
+    background: transparent;
 }
 
-.logo a {
+.navbar-logo {
+    width: 100%;
+}
 
-
-    text-decoration: none;
-
+.navbar-logo a img {
+    width: 20%;
 }
 
 

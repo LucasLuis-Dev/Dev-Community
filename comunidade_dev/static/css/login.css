@@ -130,7 +130,7 @@
         padding: 4rem;
         border-radius: 2rem 2rem 0rem 0rem;
         width: 80%;
-        height: 50%;
+        height: 60%;
         position: absolute;
         
     }    
@@ -140,7 +140,7 @@
         animation: moveInUp 1s ease-in-out;
         display: flex;
         flex-direction: column;
-        margin-top: -35rem;
+        margin-top: -50rem;
     }
     
     .login-logo__containe > img {

@@ -55,6 +55,8 @@
     border-radius: 5rem;
     font-size: 1.8rem;
     font-weight: 700;
+    text-decoration: none;
+    color: white;
 }
 
 .capa-button svg {

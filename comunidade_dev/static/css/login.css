@@ -1,0 +1,217 @@
+.login__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    height: 100vh;
+    position: relative;
+}
+
+.login-form__container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--highlight-color);
+    padding: 7rem;
+    border-radius: 2rem 2rem 0rem 0rem;
+    width: 25%;
+    height: 80%;
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    z-index: -1;
+    animation: slideUp 1s ease-in-out forwards;
+}    
+
+.login-logo__container {
+    width: 50%;
+    animation: moveInUp 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-logo__containe > img {
+    width: 100%;
+}
+
+.login-form-title__container {
+    text-align: left;
+    width: 100%;
+}
+
+.login-form-title {
+    color: white;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.login-form-inputs__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border: none;
+    width: 100%;
+}
+
+.login-form-input {
+    background: rgba(255, 255, 255, 0.215);
+    border: none;
+    border-bottom: .1rem solid rgb(255, 252, 252);
+    font-size: 1.6rem;
+    padding: 2rem .5rem;
+    padding-bottom: 1rem;
+    color: white;
+    width: 100%;
+}
+
+.login-form-input::placeholder {
+    color: rgb(255, 255, 255);
+}
+
+
+.login-form-input:focus-visible, .login-form-input:focus {
+    outline: none;
+}
+
+.login-button {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem 3rem;
+    border-radius: 5rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--highlight-color);
+    border: none;
+    cursor: pointer;
+}
+
+.login-redirect__container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.login-redirect-link {
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+}
+
+
+@media screen and (min-width: 1200px) and (max-width: 1600px) {
+    .login__container {
+        height: 125vh;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .login__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10%;
+        height: 100vh;
+        position: relative;
+    }
+    
+    .login-form__container {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--highlight-color);
+        padding: 4rem;
+        border-radius: 2rem 2rem 0rem 0rem;
+        width: 80%;
+        height: 50%;
+        position: absolute;
+        
+    }    
+    
+    .login-logo__container {
+        width: 100%;
+        animation: moveInUp 1s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        margin-top: -35rem;
+    }
+    
+    .login-logo__containe > img {
+        width: 100%;
+    }
+    
+    
+    .login-form-title__container {
+        text-align: left;
+        width: 100%;
+    }
+    
+    .login-form-title {
+        color: white;
+        font-size: 3rem;
+        font-weight: 600;
+    }
+    
+    .login-form-inputs__container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        border: none;
+        width: 100%;
+    }
+    
+    .login-form-input {
+        background: rgba(255, 255, 255, 0.215);
+        border: none;
+        border-bottom: .1rem solid rgb(255, 252, 252);
+        font-size: 1.6rem;
+        padding: 2rem .5rem;
+        padding-bottom: 1rem;
+        color: white;
+        width: 100%;
+    }
+    
+    .login-form-input::placeholder {
+        color: rgb(255, 255, 255);
+    }
+    
+    
+    .login-form-input:focus-visible, .login-form-input:focus {
+        outline: none;
+    }
+    
+    .login-button {
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.5rem 3rem;
+        border-radius: 5rem;
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: var(--highlight-color);
+        border: none;
+        cursor: pointer;
+    }
+    
+    .login-redirect__container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .login-redirect-link {
+        text-decoration: none;
+        color: white;
+        font-size: 1.3rem;
+    }
+    
+}

@@ -9,3 +9,18 @@
         transform: translateY(0);
     }
 }
+
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(50rem);
+        z-index: -1;
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0rem);
+        z-index: 1;
+        opacity: 1;
+    }
+}

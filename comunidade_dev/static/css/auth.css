@@ -1,4 +1,4 @@
-.login__container {
+.auth__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -7,7 +7,7 @@
     position: relative;
 }
 
-.login-form__container {
+.auth-form__container {
     display: flex;
     flex-direction: column;
     gap: 3rem;
@@ -25,29 +25,29 @@
     animation: slideUp 1s ease-in-out forwards;
 }    
 
-.login-logo__container {
+.auth-logo__container {
     width: 50%;
     animation: moveInUp 1s ease-in-out;
     display: flex;
     flex-direction: column;
 }
 
-.login-logo__containe > img {
+.auth-logo__containe > img {
     width: 100%;
 }
 
-.login-form-title__container {
+.auth-form-title__container {
     text-align: left;
     width: 100%;
 }
 
-.login-form-title {
+.auth-form-title {
     color: white;
     font-size: 3rem;
     font-weight: 600;
 }
 
-.login-form-inputs__container {
+.auth-form-inputs__container {
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -55,7 +55,7 @@
     width: 100%;
 }
 
-.login-form-input {
+.auth-form-input {
     background: rgba(255, 255, 255, 0.215);
     border: none;
     border-bottom: .1rem solid rgb(255, 252, 252);
@@ -66,16 +66,16 @@
     width: 100%;
 }
 
-.login-form-input::placeholder {
+.auth-form-input::placeholder {
     color: rgb(255, 255, 255);
 }
 
 
-.login-form-input:focus-visible, .login-form-input:focus {
+.auth-form-input:focus-visible, .auth-form-input:focus {
     outline: none;
 }
 
-.login-button {
+.auth-button {
     background-color: white;
     display: flex;
     justify-content: space-between;
@@ -90,13 +90,13 @@
     cursor: pointer;
 }
 
-.login-redirect__container {
+.auth-redirect__container {
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
 
-.login-redirect-link {
+.auth-redirect-link {
     text-decoration: none;
     color: white;
     font-size: 1.3rem;
@@ -104,13 +104,13 @@
 
 
 @media screen and (min-width: 1200px) and (max-width: 1600px) {
-    .login__container {
+    .auth__container {
         height: 125vh;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .login__container {
+    .auth__container {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -120,7 +120,7 @@
         position: relative;
     }
     
-    .login-form__container {
+    .auth-form__container {
         display: flex;
         flex-direction: column;
         gap: 3rem;
@@ -135,7 +135,7 @@
         
     }    
     
-    .login-logo__container {
+    .auth-logo__container {
         width: 100%;
         animation: moveInUp 1s ease-in-out;
         display: flex;
@@ -143,23 +143,23 @@
         margin-top: -50rem;
     }
     
-    .login-logo__containe > img {
+    .auth-logo__containe > img {
         width: 100%;
     }
     
     
-    .login-form-title__container {
+    .auth-form-title__container {
         text-align: left;
         width: 100%;
     }
     
-    .login-form-title {
+    .auth-form-title {
         color: white;
         font-size: 3rem;
         font-weight: 600;
     }
     
-    .login-form-inputs__container {
+    .auth-form-inputs__container {
         display: flex;
         flex-direction: column;
         gap: 2rem;
@@ -167,7 +167,7 @@
         width: 100%;
     }
     
-    .login-form-input {
+    .auth-form-input {
         background: rgba(255, 255, 255, 0.215);
         border: none;
         border-bottom: .1rem solid rgb(255, 252, 252);
@@ -178,16 +178,12 @@
         width: 100%;
     }
     
-    .login-form-input::placeholder {
+    .auth-form-input::placeholder {
         color: rgb(255, 255, 255);
     }
+
     
-    
-    .login-form-input:focus-visible, .login-form-input:focus {
-        outline: none;
-    }
-    
-    .login-button {
+    .auth-button {
         background-color: white;
         display: flex;
         justify-content: space-between;
@@ -202,13 +198,13 @@
         cursor: pointer;
     }
     
-    .login-redirect__container {
+    .auth-redirect__container {
         display: flex;
         justify-content: space-between;
         width: 100%;
     }
     
-    .login-redirect-link {
+    .auth-redirect-link {
         text-decoration: none;
         color: white;
         font-size: 1.3rem;

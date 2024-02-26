@@ -2,7 +2,11 @@
 
 
 
+
 {% block body %}
+
+{% include "navbar.html" %}
+
 <main>
     {% if postComFoto %}
     <section class="flex flex-col gap-[40px] w-full py-[2%] justify-center items-center ">
@@ -65,11 +69,12 @@
             </div>
 
         {% else %}
-            <div class="flex flex-col gap-[20px] w-[80%] h-screen  justify-center items-center max-[480px]:w-full max-[480px]:flex-col-reverse max-[480px]:px-[10%]" >
+            <div class="home__container not-post" >
 
-                <h1 class="text-[40px] font-bold text-center max-[480px]:text-[19px] max-[480px]:font-semibold" >Parece que ainda não possuimos postagens na plataforma, seja o primeiro e compartilhe uma ideia!</h1>
+                <img class="home-image-not-post" src="{{ url_for('static', filename='assets/Connected world-pana.svg') }}" alt="">
+                <h1 class="home-title" >Parece que ainda não possuimos postagens na plataforma, seja o primeiro e compartilhe uma ideia!</h1>
 
-                <img class="max-[480px]:w-full" src="{{ url_for('static', filename='Connected world-pana.svg') }}" alt="">
+                
 
             </div>
 

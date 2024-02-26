@@ -64,7 +64,7 @@ class FormEditarPerfil(FlaskForm):
 
 
 class FormCriarPost(FlaskForm):
-    foto_post = FileField('Adicione uma foto ao post', validators=[FileAllowed(['jpg','png','jpeg'])])
+    foto_post = FileField('Adicione um Foto', validators=[FileAllowed(['jpg','png','jpeg'])])
     corpo = TextAreaField('Escreva seu post aqui', validators=[DataRequired()])
     botaoSubmitCriarPost = SubmitField('Criar Postagem')
 
